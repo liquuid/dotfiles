@@ -1,0 +1,30 @@
+{
+  LargeDisplayFont = "URW Gothic L, Semi-Bold Oblique:slant=0:weight=80:width=100:pixelsize=24";
+  HighlightColor = "#ffffff";
+  FTitleColor = "#ffffff";
+  MenuTextFont = "URW Gothic L:slant=0:weight=180:width=100:pixelsize=12";
+  WorkspaceBack = (spixmap, bjork_1600.jpg, "#000000");
+  UTitleBack = (mhgradient, "#a8a8a8", "rgb:90/90/90", "#d4d4d4");
+  IconTitleFont = "lucida:pixelsize=8";
+  PTitleBack = (mhgradient, "#686868", "rgb:50/50/50", "rgb:80/80/80");
+  WindowTitleFont = "URW Gothic L:slant=110:weight=75:width=100:pixelsize=12";
+  UTitleColor = "#333333";
+  MenuDisabledColor = "#666666";
+  ClipTitleFont = "lucida:bold:pixelsize=8";
+  MenuStyle = normal;
+  MenuTextBack = (solid, "#7a7a7a");
+  PTitleColor = "#ffffff";
+  IconBack = (mhgradient, "#25289e", "#000000", "#b8b8b8");
+  MenuTitleBack = (mhgradient, "#101048", black, "#b9b9b9");
+  FTitleBack = (mhgradient, "#101040", "#000000", "#e0dcdc");
+  CClipTitleColor = "#616161";
+  TitleJustify = left;
+  ResizebarBack = (solid, "#a8a8a8");
+  MenuTextColor = "#ffffff";
+  ClipTitleColor = white;
+  IconTitleBack = "#454545";
+  HighlightTextColor = "#000000";
+  IconTitleColor = white;
+  MenuTitleFont = "URW Gothic L:slant=0:weight=75:width=100:pixelsize=12";
+  MenuTitleColor = "#ffffff";
+}

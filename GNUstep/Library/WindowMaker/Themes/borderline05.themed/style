@@ -1,0 +1,35 @@
+{
+  LargeDisplayFont = "-*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*";
+  HighlightColor = "#bdde8e";
+  MenuTextExtendSpace = "-1";
+  FTitleColor = "#ffffff";
+  MenuTitleExtendSpace = "-1";
+  MenuTextFont = "-adobe-helvetica-medium-r-normal-*-14-*-*-*-p-*-*-*";
+  WorkspaceBack = (spixmap, borderline.jpg, "#dddddd");
+  NormalCursor = (builtin, left_ptr);
+  IconTitleFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  IconBack = (spixmap, borderline_menu.jpg, "#000000");
+  MoveCursor = (bitmap, dot_move.xbm, dot_move_mask.xbm);
+  WindowTitleFont = "-adobe-helvetica-bold-r-normal-*-16-*-*-*-p-*-*";
+  UTitleColor = "#010102";
+  MenuDisabledColor = "#bebebe";
+  ClipTitleFont = "-adobe-helvetica-bold-r-normal-*-12-*-*-*-p-*-*";
+  MenuStyle = flat;
+  MenuTextBack = (spixmap, borderline_menu.jpg, "#888888");
+  ResizeCursor = (bitmap, dot_resize.xbm, dot_resize_mask.xbm);
+  PTitleColor = "#ffffff";
+  FtitleBack = (spixmap, borderline_title.jpg, "#000000");
+  MenuTitleBack = (spixmap, borderline_title.jpg, "#000000");
+  DisplayFont = "-*-helvetica-medium-r-normal-*-10-*-*-*-*-*-*-*";
+  WindowTitleExtendSpace = "-1";
+  TitleJustify = left;
+  CClipTitleColor = "#666622";
+  MenuTextColor = "#eeeeee";
+  ClipTitleColor = "#dedede";
+  IconTitleBack = "#444444";
+  HighlightTextColor = "#ffffff";
+  WaitCursor = (bitmap, dot_wait.xbm, dot_wait_mask.xbm);
+  IconTitleColor = "#cccccc";
+  MenuTitleFont = "-adobe-helvetica-bold-r-normal-*-11-*-*-*-p-*-*";
+  MenuTitleColor = "#dddddd";
+}

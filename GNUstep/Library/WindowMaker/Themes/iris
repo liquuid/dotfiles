@@ -1,0 +1,82 @@
+{
+  LargeDisplayFont = "helvetica:bold:pixelsize=24";
+  HighlightColor = "#000000";
+  MenuTextExtendSpace = "-1";
+  FTitleColor = "#888888";
+  MenuTitleExtendSpace = "-1";
+  MenuTextFont = "helvetica:pixelsize=12";
+  WorkspaceBack = (
+    spixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Backgrounds/Aurora_Borealis_1920 x 1200 widescreen.jpg",
+    gray20
+  );
+  UTitleBack = (
+    tpixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/Infected.themed/Etb1.jpg",
+    "#080808"
+  );
+  NormalCursor = (builtin, left_ptr);
+  IconTitleFont = "helvetica:pixelsize=8";
+  PTitleBack = (
+    tpixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/Infected.themed/Etb3.jpg",
+    "#181818"
+  );
+  MoveCursor = (
+    bitmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_move.xbm",
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_move_mask.xbm"
+  );
+  WindowTitleFont = "helvetica:bold:pixelsize=12";
+  UTitleColor = "#616161";
+  MenuDisabledColor = "#5d5d5d";
+  ClipTitleFont = "helvetica:bold:pixelsize=10";
+  MenuStyle = flat;
+  MenuTextBack = (
+    spixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/Infected.themed/FreakEMenu1.jpg",
+    "#333333"
+  );
+  ResizeCursor = (
+    bitmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_resize.xbm",
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_resize_mask.xbm"
+  );
+  PTitleColor = "#aaaaaa";
+  IconBack = (
+    spixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/Infected.themed/ETile1.jpg",
+    black
+  );
+  MenuTitleBack = (
+    spixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/Infected.themed/EMenutb2.jpg",
+    "#333333"
+  );
+  DisplayFont = "helvetica:pixelsize=12";
+  FTitleBack = (
+    tpixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/Infected.themed/Etb2.jpg",
+    "#181818"
+  );
+  WindowTitleExtendSpace = "-1";
+  TitleJustify = right;
+  CClipTitleColor = "#444444";
+  ResizebarBack = (
+    tpixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/Infected.themed/Etb1.jpg",
+    "#080808"
+  );
+  MenuTextColor = "#b8b8b8";
+  ClipTitleColor = "#666666";
+  IconTitleBack = "#181818";
+  HighlightTextColor = "#82898d";
+  WaitCursor = (
+    bitmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_wait.xbm",
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_wait_mask.xbm"
+  );
+  IconTitleColor = "#777777";
+  MenuTitleFont = "helvetica:bold:pixelsize=12";
+  MenuTitleColor = "#777777";
+}

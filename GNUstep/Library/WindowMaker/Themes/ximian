@@ -1,0 +1,35 @@
+{
+  FTitleColor = "#ffffff";
+  MenuTitleBack = (hgradient, orange2, orange4);
+  MenuDisabledColor = "#999999";
+  IconTitleBack = "#bd7a00";
+  FTitleBack = (hgradient, orange2, orange4);
+  ClipTitleFont = "Verdana:bold:pixelsize=10";
+  ClipTitleColor = black;
+  IconTitleFont = "Arial,Luxi Sans:pixelsize=9";
+  HighlightColor = "#ffffff";
+  WindowTitleFont = "Trebuchet MS:slant=0:weight=200:width=100:pixelsize=12";
+  MenuTextBack = (hgradient, "rgb:18/38/59", "rgb:00/14/28");
+  LargeDisplayFont = "Trebuchet MS,Luxi Sans:pixelsize=24";
+  CClipTitleColor = gray30;
+  MenuStyle = flat;
+  ResizebarBack = (hgradient, "rgb:18/38/59", black);
+  DisplayFont = "Trebuchet MS,Luxi Sans:pixelsize=12";
+  IconTitleColor = white;
+  TitleJustify = center;
+  MenuTextColor = "#ffffff";
+  IconBack = (dgradient, "rgb:a6/a6/b6", "rgb:51/55/61");
+  PTitleBack = (hgradient, orange4, black);
+  MenuTitleColor = "#ffffff";
+  UTitleColor = "#999999";
+  MenuTitleFont = "Trebuchet MS,Luxi Sans:bold:pixelsize=12";
+  UTitleBack = (hgradient, "rgb:18/38/59", black);
+  PTitleColor = "#999999";
+  MenuTextFont = "Trebuchet MS,Luxi Sans:pixelsize=12";
+  WorkspaceBack = (
+    spixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Backgrounds/Ximian-Steel_Monkey_1600x1200.png",
+    gray20
+  );
+  HighlightTextColor = "#000000";
+}

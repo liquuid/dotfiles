@@ -1,0 +1,38 @@
+{
+  LargeDisplayFont = "Trebuchet MS,Luxi Sans:pixelsize=24";
+  HighlightColor = "#ed5e50";
+  MenuTextExtendSpace = "-1";
+  FTitleColor = "#ffffff";
+  MenuTitleExtendSpace = "-1";
+  MenuTextFont = "Trebuchet MS,Luxi Sans:pixelsize=12";
+  WorkspaceBack = (tpixmap, Devil_girls_all4_1024.jpg, gray20);
+  UTitleBack = (hgradient, "#bf7e6c", "#000000");
+  NormalCursor = (builtin, left_ptr);
+  IconTitleFont = "Arial,Luxi Sans:pixelsize=9";
+  PTitleBack = (hgradient, "#fd8f78", "#000000");
+  MoveCursor = (bitmap, dot_move.xbm, dot_move_mask.xbm);
+  WindowTitleFont = "Trebuchet MS,Luxi Sans:bold:pixelsize=12";
+  UTitleColor = "#ffffff";
+  MenuDisabledColor = "#cccccc";
+  ClipTitleFont = "Verdana:bold:pixelsize=10";
+  MenuStyle = normal;
+  MenuTextBack = (hgradient, "#b97a68", "#8d5c4d");
+  ResizeCursor = (bitmap, dot_resize.xbm, dot_resize_mask.xbm);
+  PTitleColor = "#bebebe";
+  IconBack = (dgradient, "#a86f5e", "#5f4338");
+  MenuTitleBack = (hgradient, "#ec5d4d", "#8d5c4b");
+  DisplayFont = "Trebuchet MS,Luxi Sans:pixelsize=12";
+  FTitleBack = (hgradient, "#fd7160", "#8f5e50");
+  WindowTitleExtendSpace = "-1";
+  TitleJustify = center;
+  CClipTitleColor = gray20;
+  ResizebarBack = (hgradient, peru, black);
+  MenuTextColor = "#ffffff";
+  ClipTitleColor = white;
+  IconTitleBack = "#8b0000";
+  HighlightTextColor = "#000000";
+  WaitCursor = (bitmap, dot_wait.xbm, dot_wait_mask.xbm);
+  IconTitleColor = white;
+  MenuTitleFont = "Trebuchet MS,Luxi Sans:bold:pixelsize=12";
+  MenuTitleColor = "#ffffff";
+}

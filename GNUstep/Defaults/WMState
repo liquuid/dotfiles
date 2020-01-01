@@ -1,0 +1,478 @@
+{
+  Dock = {
+    AutoRaiseLower = No;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      },
+      {
+        Forced = No;
+        Name = groupLeader.WPrefs;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,10";
+        Lock = Yes;
+        Command = "/usr/share/GNUstep/Applications/WPrefs.app/WPrefs ";
+      },
+      {
+        Forced = No;
+        Name = "firefox-bin.Firefox-bin";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,11";
+        Lock = Yes;
+        PasteCommand = "firefox-bin %s";
+        Command = firefox;
+      },
+      {
+        Forced = No;
+        Name = wmCalClock.wmCalClock;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,1";
+        Lock = Yes;
+        PasteCommand = "wmCalClock %s";
+        Command = wmCalClock;
+      },
+      {
+        Forced = No;
+        Name = urxvt.URxvt;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,12";
+        Lock = Yes;
+        PasteCommand = "urxvt -tr -rv -sh 40 -sl 100000 -ls +sb %s";
+        Command = "urxvt -tr -rv -sh 40 -sl 100000 -ls +sb";
+      },
+      {
+        Forced = No;
+        Name = wmix.wmix;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,5";
+        Lock = Yes;
+        PasteCommand = "wmix %s";
+        Command = wmix;
+      },
+      {
+        Forced = No;
+        Name = wmwifi.DockApp;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,4";
+        Lock = Yes;
+        PasteCommand = "/usr/local/bin/wmwifi %s";
+        Command = "/usr/local/bin/wmwifi";
+      },
+      {
+        Forced = No;
+        Name = wmnd.wmnd;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,6";
+        Lock = Yes;
+        PasteCommand = "wmnd %s";
+        Command = wmnd;
+      },
+      {
+        Forced = No;
+        Name = wmtop.wmtop;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,7";
+        Lock = Yes;
+        PasteCommand = "wmtop %s";
+        Command = wmtop;
+      },
+      {
+        Forced = No;
+        Name = "/usr/local/bin/wmsm./usr/local/bin/wmsm";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,3";
+        Lock = Yes;
+        PasteCommand = "/usr/local/bin/wmsm %s";
+        Command = "/usr/local/bin/wmsm";
+      },
+      {
+        Forced = No;
+        Name = wmBinClock.wmBinClock;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,8";
+        Lock = Yes;
+        PasteCommand = "wmBinClock %s";
+        Command = wmBinClock;
+      },
+      {
+        Forced = No;
+        Name = wmcube.wmcube;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,2";
+        Lock = Yes;
+        PasteCommand = "wmcube %s";
+        Command = wmcube;
+      },
+      {
+        Forced = No;
+        Name = wmhdplop.wmhdplop;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,9";
+        Lock = Yes;
+        PasteCommand = "wmhdplop %s";
+        Command = wmhdplop;
+      },
+      {
+        Forced = No;
+        Name = firefox.Firefox;
+        DropCommand = "firefox %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,13";
+        Lock = No;
+        PasteCommand = "firefox %s";
+        Command = firefox;
+      },
+      {
+        Forced = No;
+        Name = .terminator;
+        DropCommand = "terminator %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,14";
+        Lock = No;
+        PasteCommand = "terminator %s";
+        Command = terminator;
+      }
+    );
+    Applications1080 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      },
+      {
+        Forced = No;
+        Name = groupLeader.WPrefs;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,10";
+        Lock = Yes;
+        Command = "/usr/share/GNUstep/Applications/WPrefs.app/WPrefs ";
+      },
+      {
+        Forced = No;
+        Name = "firefox-bin.Firefox-bin";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,11";
+        Lock = Yes;
+        PasteCommand = "firefox-bin %s";
+        Command = firefox;
+      },
+      {
+        Forced = No;
+        Name = wmCalClock.wmCalClock;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,1";
+        Lock = Yes;
+        PasteCommand = "wmCalClock %s";
+        Command = wmCalClock;
+      },
+      {
+        Forced = No;
+        Name = urxvt.URxvt;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,12";
+        Lock = Yes;
+        PasteCommand = "urxvt -tr -rv -sh 40 -sl 100000 -ls +sb %s";
+        Command = "urxvt -tr -rv -sh 40 -sl 100000 -ls +sb";
+      },
+      {
+        Forced = No;
+        Name = wmix.wmix;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,5";
+        Lock = Yes;
+        PasteCommand = "wmix %s";
+        Command = wmix;
+      },
+      {
+        Forced = No;
+        Name = wmwifi.DockApp;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,4";
+        Lock = Yes;
+        PasteCommand = "/usr/local/bin/wmwifi %s";
+        Command = "/usr/local/bin/wmwifi";
+      },
+      {
+        Forced = No;
+        Name = wmnd.wmnd;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,6";
+        Lock = Yes;
+        PasteCommand = "wmnd %s";
+        Command = wmnd;
+      },
+      {
+        Forced = No;
+        Name = wmtop.wmtop;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,7";
+        Lock = Yes;
+        PasteCommand = "wmtop %s";
+        Command = wmtop;
+      },
+      {
+        Forced = No;
+        Name = "/usr/local/bin/wmsm./usr/local/bin/wmsm";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,3";
+        Lock = Yes;
+        PasteCommand = "/usr/local/bin/wmsm %s";
+        Command = "/usr/local/bin/wmsm";
+      },
+      {
+        Forced = No;
+        Name = wmBinClock.wmBinClock;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,8";
+        Lock = Yes;
+        PasteCommand = "wmBinClock %s";
+        Command = wmBinClock;
+      },
+      {
+        Forced = No;
+        Name = wmcube.wmcube;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,2";
+        Lock = Yes;
+        PasteCommand = "wmcube %s";
+        Command = wmcube;
+      },
+      {
+        Forced = No;
+        Name = wmhdplop.wmhdplop;
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,9";
+        Lock = Yes;
+        PasteCommand = "wmhdplop %s";
+        Command = wmhdplop;
+      },
+      {
+        Forced = No;
+        Name = firefox.Firefox;
+        DropCommand = "firefox %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,13";
+        Lock = No;
+        PasteCommand = "firefox %s";
+        Command = firefox;
+      },
+      {
+        Forced = No;
+        Name = .terminator;
+        DropCommand = "terminator %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,14";
+        Lock = No;
+        PasteCommand = "terminator %s";
+        Command = terminator;
+      }
+    );
+    Lowered = No;
+    Position = "-64,0";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    BuggyApplication = No;
+    AutoLaunch = No;
+    Position = "0,0";
+    Lock = No;
+    Command = "-";
+  };
+  Drawers = ();
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = (
+          {
+            Forced = No;
+            Name = "miro\\.real.Miro\\.real";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "2,2";
+            Lock = Yes;
+            PasteCommand = "miro.real %s";
+            Command = miro.real;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = skype.Skype;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,1";
+            Lock = No;
+            PasteCommand = "skype %s";
+            Command = skype;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = "ROX-Filer.ROX-Filer";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "1,2";
+            Lock = Yes;
+            PasteCommand = "ROX-Filer %s";
+            Command = rox;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = k9copy.K9copy;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "1,1";
+            Lock = No;
+            PasteCommand = "k9copy %s";
+            Command = k9copy;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = xchat.Xchat;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "1,0";
+            Lock = No;
+            PasteCommand = "xchat %s";
+            Command = xchat;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = "gajim\\.py.Gajim\\.py";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "2,0";
+            Lock = Yes;
+            PasteCommand = "gajim.py %s";
+            Command = gajim;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = transmission.Transmission;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,2";
+            Lock = Yes;
+            PasteCommand = "transmission %s";
+            Command = transmission;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = cinelerra.Cinelerra;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,3";
+            Lock = Yes;
+            PasteCommand = "cinelerra %s";
+            Command = cinelerra;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = VirtualBox.VirtualBox;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "2,1";
+            Lock = No;
+            PasteCommand = "VirtualBox %s";
+            Command = VirtualBox;
+            Omnipresent = Yes;
+          },
+          {
+            Forced = No;
+            Name = Banshee.Banshee;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "3,0";
+            Lock = Yes;
+            PasteCommand = "Banshee %s";
+            Command = "dbus-launch banshee-1";
+            Omnipresent = Yes;
+          }
+        );
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = Main;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = "M\303\272sica";
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = "Comunica\303\247\303\243o";
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = pirataria;
+    }
+  );
+}

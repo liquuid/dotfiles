@@ -1,0 +1,54 @@
+{
+  LargeDisplayFont = "Trebuchet MS,Luxi Sans:pixelsize=24";
+  HighlightColor = "#ffffff";
+  MenuTextExtendSpace = "-1";
+  FTitleColor = "#ffffff";
+  MenuTitleExtendSpace = "-1";
+  MenuTextFont = "Trebuchet MS,Luxi Sans:pixelsize=12";
+  WorkspaceBack = (
+    tpixmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Backgrounds/wallpaper_leaves.jpg",
+    gray20
+  );
+  UTitleBack = (hgradient, "#535759", "#000000");
+  NormalCursor = (builtin, left_ptr);
+  IconTitleFont = "Arial,Luxi Sans:pixelsize=9";
+  PTitleBack = (hgradient, orange4, black);
+  MoveCursor = (
+    bitmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_move.xbm",
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_move_mask.xbm"
+  );
+  WindowTitleFont = "Trebuchet MS:slant=0:weight=200:width=100:pixelsize=12";
+  UTitleColor = "#999999";
+  MenuDisabledColor = "#999999";
+  ClipTitleFont = "Verdana:bold:pixelsize=10";
+  MenuStyle = flat;
+  MenuTextBack = (hgradient, "#595759", "#001428");
+  ResizeCursor = (
+    bitmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_resize.xbm",
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_resize_mask.xbm"
+  );
+  PTitleColor = "#999999";
+  IconBack = (hgradient, "#a6a6b6", "#515561");
+  MenuTitleBack = (hgradient, orange2, orange4);
+  DisplayFont = "Trebuchet MS,Luxi Sans:pixelsize=12";
+  FTitleBack = (hgradient, orange2, orange4);
+  WindowTitleExtendSpace = "-1";
+  TitleJustify = center;
+  CClipTitleColor = gray30;
+  ResizebarBack = (hgradient, "#515559", "#000000");
+  MenuTextColor = "#ffffff";
+  ClipTitleColor = black;
+  IconTitleBack = "#bd7a00";
+  HighlightTextColor = "#000000";
+  WaitCursor = (
+    bitmap,
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_wait.xbm",
+    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_wait_mask.xbm"
+  );
+  IconTitleColor = white;
+  MenuTitleFont = "Trebuchet MS,Luxi Sans:bold:pixelsize=12";
+  MenuTitleColor = "#ffffff";
+}

@@ -1,0 +1,31 @@
+{
+  TitleJustify = center;
+  ClipTitleFont = "sans 10";
+  WindowTitleFont = "sans 10";
+  MenuTitleFont = "sans 10";
+  MenuTextFont = "sans 10";
+  IconTitleFont = "sans 10";
+  DisplayFont = "sans 10";
+  LargeDisplayFont = "sans 10";
+  HighlightColor = "#7f7f7f";
+  HighlightTextColor = "#000000";
+  ClipTitleColor = white;
+  CClipTitleColor = white;
+  FTitleColor = "#ffffff";
+  PTitleColor = "#7f7f7f";
+  UTitleColor = "#7f7f7f";
+  FTitleBack = (spixmap, pixmap.jpg, black);
+  PTitleBack = (spixmap, pixmap.jpg, black);
+  UTitleBack = (spixmap, pixmap.jpg, black);
+  ResizebarBack = (spixmap, pixmap.jpg, black);
+  MenuTitleColor = "#ffffff";
+  MenuTextColor = "#ffffff";
+  MenuDisabledColor = "#000000";
+  MenuTitleBack = (spixmap, pixmap.jpg, black);
+  MenuTextBack = (spixmap, menu.jpg, black);
+  IconBack = (spixmap, pixmap.jpg, black);
+  IconTitleColor = black;
+  IconTitleBack = "#7f7f7f";
+  MenuStyle = Flat;
+  WorkspaceBack = (cpixmap, "papel_parede_1024x768.jpg", black);
+  }
