@@ -1,0 +1,119 @@
+..jpg(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do convert -quality 80 $i ${i:r}.jpg; done
+}
+..webp(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do cwebp -q 80 -o ${i:r}.webp $i ; done
+}
+..dwebp(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do dwebp -o ${i:r}.png $i ; done
+}
+..jpgcruncher(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do cjpeg -outfile ${i:r}.c.jpg $i; mv ${i:r}.c.jpg $i ; done
+}
+..gx265_23(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -hwaccel vaapi -n -i $i -c:a copy -c:s copy -vaapi_device /dev/dri/renderD128 -c:v hevc_vaapi -crf 23 -vf 'format=nv12,hwupload' -f matroska ${i:r}.gx265_23.mkv; done
+}
+
+..x265_51(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 51 ${i:r}.x265_51.mkv; done
+}
+
+
+..x265_32(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 32 ${i:r}.x265_32.mkv; done
+}
+
+..x265_28(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 28 ${i:r}.x265_28.mkv; done
+}
+..x265_25(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 25 ${i:r}.x265_25.mkv; done
+}
+..x265_23(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 23 ${i:r}.x265_23.mkv; done
+}
+..x265_21(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 21 ${i:r}.x265_21.mkv; done
+}
+..x264_23(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 23 ${i:r}.x264_23.mkv; done
+}
+..x264_25(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 25 ${i:r}.x264_25.mkv; done
+}
+..x264_28(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 28 ${i:r}.x264_28.mkv; done
+}
+..x264_30(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 30 ${i:r}.x264_30.mkv; done
+}
+..cpufreq(){
+    cat /proc/cpuinfo | grep "cpu MH"
+}
+..squash(){
+    mksquashfs $@ -keep-as-directory -comp lzma
+}
+..unzip(){
+    if (( $# == 0 ))
+    then echo usage: ..unzip name ...; fi
+    for i; do unzip $i -d ${i:r}; done
+}   
+..unrar(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do unrar x $i; done
+}   
+..7zm(){
+    if (( $# == 0 ))
+    then echo usage: ..7zm name ...; fi
+    for i; do 7z a -mx=9 ${i:r}.7z $i; done
+}
+..alpha_organizer(){
+    ALPHA="q w e r t y u i o p a s d f g h j k l z x c v b n m"
+    for i in `echo ${ALPHA} ` ; do mkdir $i; done
+    for i in `echo ${ALPHA} ` ; do mv ${(L)i}* $i; done
+    for i in `echo ${ALPHA} ` ; do mv ${(U)i}* $i; done
+}
+..split_flac(){
+    if (( $# == 0 ))
+    then echo usage: $0 cue file ; fi
+    shnsplit -f ${1:r}.cue -t %n-%t -o flac ${1:r}.flac
+}
+
+..nginx_logs() {
+    sudo tail -f /var/log/php-fpm/error.log
+}
+..clear_docker() {
+    lista=`docker images | awk '{ print $3 }'`
+    docker rmi `echo $lista`
+}
