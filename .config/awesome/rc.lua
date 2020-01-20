@@ -103,22 +103,22 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "opera"
+local browser           = "firefox"
 local editor            = os.getenv("EDITOR") or "vim"
 local editorgui         = "code"
 local filemanager       = "pcmanfm"
 local mailclient        = "geary"
-local mediaplayer       = "totem"
+local mediaplayer       = "mpv"
 local scrlocker         = "slimlock"
-local terminal          = "terminator"
+local terminal          = "termite"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
 awful.util.terminal = terminal
---awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
+awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " VBOX ", " MEDIA " }
+-- awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " VBOX ", " MEDIA " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
