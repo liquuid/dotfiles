@@ -1,3 +1,14 @@
+..pull(){
+    echo "update dotfiles...";
+    cd ~/; git pull;
+    echo "update documents...";
+    cd ~/Documents; git pull;
+    echo "update desktop...";
+    cd ~/Desktop; git pull;
+    echo "update pictures...";
+    cd ~/Pictures; git pull;
+}
+
 ..jpg(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
