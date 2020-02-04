@@ -110,7 +110,7 @@ local filemanager       = "pcmanfm"
 local mailclient        = "geary"
 local mediaplayer       = "mpv"
 local scrlocker         = "slimlock"
-local terminal          = "termite"
+local terminal          = "terminator"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables

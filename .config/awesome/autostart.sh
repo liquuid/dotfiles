@@ -14,6 +14,7 @@ run "xfce4-power-manager"
 run "blueberry-tray"
 run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 run "numlockx on"
+run "setxkbmap br abnt2"
 run "volumeicon"
 run "xrandr --output DVI-I-0 --mode 1280x1024 --pos 0x0 --rotate normal --output DVI-I-1 --off --output HDMI-0 --primary --mode 2560x1080 --pos 1280x0 --rotate normal --output DP-0 --off --output DVI-D-0 --mode 1440x900 --pos 3840x0 --rotate normal --output DP-1 --off"
 sleep 3

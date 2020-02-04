@@ -13,6 +13,7 @@ compinit
 PROMPT='%F{green}%n%f@%F{blue}%m%f %F{yellow}%1~%f %# '
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/bin
+export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/usr/local/bin
 export GOPATH=~/go
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
