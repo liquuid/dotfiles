@@ -24,6 +24,7 @@ alias ls="ls --color"
 #alias steam="flatpak run com.valvesoftware.Steam"
 alias ddu="du -h --max-depth=1"
 alias -s txt=vim
+alias gnome-boxes="GTK_THEME=Adwaita:light gnome-boxes"
 #export VAGRANT_DEFAULT_PROVIDER=libvirt
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
