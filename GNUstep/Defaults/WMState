@@ -143,7 +143,7 @@
       },
       {
         Forced = No;
-        Name = .terminator;
+        Name = terminator;
         DropCommand = "terminator %d";
         BuggyApplication = No;
         AutoLaunch = No;
@@ -295,7 +295,7 @@
       },
       {
         Forced = No;
-        Name = .terminator;
+        Name = terminator;
         DropCommand = "terminator %d";
         BuggyApplication = No;
         AutoLaunch = No;
