@@ -1,1 +1,24 @@
 Xft.dpi: 96
+urxvt*depth:32
+urxvt*background: rgba:2000/2000/2000/cccc
+URxvt.font:                      xft:Hack:size=11
+URxvt.scrollBar_right:           true
+URxvt.cursorBlink: 		 true
+URxvt*.shading: 20
+URxvt*foreground:                     white
+URxvg*cursorColor:                    white
+URxvt*saveLines:                      7777
+URxvt*scrollColor:                    #d1d4e0
+URxvt*highlightColor:                 #252936
+URxvt*highlightTextColor:             #C0C5CE
+URxvt*fading:         				  40
+URxvt.perl-lib: /usr/lib64/urxvt/perl/
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+!URxvt.perl-ext-common: ...,resize-font,fullscreen,...
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+URxvt.letterSpace: -1.5

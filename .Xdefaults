@@ -1,2 +1,109 @@
 
 Xcursor.theme: breeze_cursors
+!!!!!!! Muh(fia
+!!!! X
+! Resources
+!!!! Brah
+!WE WANT DA FONT
+#URxvt.font:             -beastie-gohufontmod11-*-*-*-*-11-*-100-*-*-*-iso8859-1
+#URxvt.boldFont:         -beastie-gohufontmod11-*-*-*-*-11-*-100-*-*-*-iso8859-1
+
+! cause shell to be started as login shell
+URxvt*loginShell: true
+
+! do not scroll with output
+ URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+!  turn off scrollbar
+URxvt.scrollBar: false
+
+! clickable URLS please
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: firefox
+URxvt.matcher.button: 1
+URxvt.colorUL: #7ECCB2
+
+!Misc. settings, tired of explaining and talking to myself
+URxvt.imLocale: en_US.UTF-8
+URxvt.saveLines: 512
+URxvt.colorBD: #857672
+URxvt.colorIT: #bbbbbb
+URxvt.cursorBlink: false
+URxvt.cursorColor: #ff8939
+URxvt.cursorColor2: #121212
+
+URxvt.font:         xft:Hack-Regular:pixelsize=14,xft:Symbola
+URxvt.boldFont:     xft:Hack-Bold:pixelsize=14:weight=bold,xft:Symbola
+URxvt.italicFont:   xft:Hack-RegularOblique:pixelsize=14:slant=italic,xft:Symbola
+
+!URxvt Colors
+*foreground: #9C9A94
+*background: #111111
+!black
+*color0:     #111111
+*color8:     #404040
+!red
+*color1:     #DA5F5F
+*color9:     #E17A6B
+!green
+*color2:     #95C749
+*color10:    #B8D68C
+!yellow
+*color3:     #B5E15D
+*color11:    #F0BB6E
+!blue
+*color4:     #778798
+*color12:    #D2B48C
+!magenta
+*color5:     #AEA4BF
+*color13:    #5AF4B5
+!cyan
+*color6:     #CCCA9A
+*color14:    #42717B
+!white
+*color7:     #ECEAE0
+*color15:    #dddddd
+
+!XFT settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: full
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+
+!MK Madness
+
+xmessage*form.okay.shapeStyle: rectangle
+xmessage*form.okay.background: IndianRed
+xmessage*form.okay.foreground: rgb:e/b/b
+xmessage*message*background: ivory3
+xmessage*background: gray85
+xmessage*foreground: gray15
+xmessage*Scrollbar.width: 1
+xmessage*Scrollbar.borderWidth: 0
+xmessage*Text.?.cursorColor: rgb:d/5/5
+xmessage*Text.borderColor: gray65
+xmessage*Text*background: gray95
+xmessage*Command.highlightThickness: 1
+xmessage*Command.internalWidth: 5
+xmessage*Command.internalHeight: 3
+xmessage*Command.borderColor: gray40
+xmessage*Command.shapeStyle: Rectangle
+xmessage*Command.background: gray80
+#xmessage*font: -*-uushi-*-*-*-*-*-*-*-*-*-*-*-*
+
+! rxvt-unicode
+URxvt.urgentOnBell:  true
+! Xclock Colors
+XClock.Clock.majorColor:  #D2B48C
+XClock.Clock.minorColor:  #E17A6B
+XClock.Clock.hourColor:   #1f1f1f
+XClock.Clock.secondColor: #1f1f1f
+XClock.Clock.minuteColor: #1f1f1f
+
