@@ -1,4 +1,5 @@
 {
+  TextureList = ();
   NoXSetStuff = NO;
   ColorList = (
     "#000000",
@@ -26,5 +27,4 @@
     "#ce29c6",
     "#ce2973"
   );
-  TextureList = ();
 }

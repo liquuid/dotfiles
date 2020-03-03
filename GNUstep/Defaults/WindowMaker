@@ -1,16 +1,13 @@
 {
-  HighlightColor = "#ffffff";
-  Shadow = yes;
-  AntialiasedText = NO;
-  MenuTitleExtendSpace = "-1";
-  UTitleBack = (hgradient, "#535759", "#000000");
-  MoveResizeKey = None;
-  VirtualEdgeDownKey = None;
-  VirtualEdgeLeftKey = None;
-  NormalCursor = (builtin, left_ptr);
-  StickyIcons = YES;
-  PTitleBack = (hgradient, orange4, black);
-  WindowShortcut10Key = None;
+  FrameBorderColor = "#000000";
+  FTitleColor = "#f3f7ff";
+  DontLinkWorkspaces = NO;
+  LTCMaximizeKey = None;
+  MenuDisabledColor = "#bebebe";
+  CycleIgnoreMinimized = NO;
+  LastWorkspaceKey = None;
+  IconTitleBack = "#60707f";
+  MoveToWorkspace9Key = None;
   PixmapPath = (
     "/home/liquuid/GNUstep/Library/WindowMaker/Pixmaps",
     "/home/liquuid/GNUstep/Library/WindowMaker/Backgrounds",
@@ -20,57 +17,146 @@
     "/usr/local/share/pixmaps",
     "/usr/share/pixmaps"
   );
-  MoveCursor = (
-    bitmap,
-    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_move.xbm",
-    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_move_mask.xbm"
-  );
-  MiniwindowTitleBalloons = NO;
-  NoWindowOverDock = NO;
-  WindowTitleFont = "Trebuchet MS:slant=0:weight=200:width=100:pixelsize=12";
-  MenuDisabledColor = "#999999";
-  CloseKey = "Mod1+F4";
-  FocusMode = sloppy;
-  MenuStyle = flat;
-  MenuTextBack = (hgradient, "#595759", "#001428");
-  IconBack = (tpixmap, wallpaper_leaves.jpg, "#000000");
-  MenuTitleBack = (hgradient, orange2, orange4);
-  FTitleBack = (tpixmap, wallpaper_leaves.jpg, "#000000");
-  WindowShortcut1Key = None;
-  WindowShortcut2Key = None;
-  WindowTitleExtendSpace = "-1";
-  WindowShortcut3Key = None;
-  ToggleKbdModeKey = None;
-  ResizebarBack = (hgradient, "#515559", "#000000");
-  WindowShortcut4Key = None;
-  MenuTextColor = "#ffffff";
-  HighlightTextColor = "#000000";
+  FTitleBack = (hgradient, "#60707f", "#363f4e");
+  Shadow = yes;
+  MoveToPrevWorkspaceLayerKey = None;
+  ClipTitleFont = "helvetica:pixelsize=10";
+  MiniwindowPreviewBalloons = YES;
   MaximizeKey = "Control+Mod1+Return";
-  WindowShortcut5Key = None;
+  MouseForwardButtonAction = None;
+  IconTitleFont = "helvetica:pixelsize=10";
+  MoveToWorkspace7Key = None;
+  LargeDisplayFont = "helvetica:weight=200:pixelsize=48";
+  RBCMaximizeKey = None;
+  ResizeCursor = (
+    bitmap,
+    "/usr/share/WindowMaker/Themes/Where.themed/dot_resize.xbm",
+    "/usr/share/WindowMaker/Themes/Where.themed/dot_resize_mask.xbm"
+  );
+  VirtualEdgeUpKey = None;
+  WindowShortcut10Key = None;
+  IconTitleColor = "#ffffff";
+  MoveToWorkspace2Key = None;
+  MenuTitleColor = "#000000";
+  MouseWheelTiltAction = None;
+  WindowShortcut3Key = None;
+  MenuTitleFont = "lucida:pixelsize=16";
+  SmoothWorkspaceBack = YES;
+  WindowRelaunchKey = None;
+  EnableWorkspacePager = YES;
+  WindowShortcut4Key = None;
+  IconPosition = brh;
+  NoWindowOverDock = YES;
+  WorkspaceBack = (
+    spixmap,
+    "/usr/share/WindowMaker/Themes/heavyDV.themed/heavyDV1024.jpg",
+    "#60707f"
+  );
+  OmnipresentKey = None;
+  HighlightTextColor = "#ffbf01";
+  VirtualEdgeLeftKey = None;
+  SnapEdgeDetect = 1;
+  LBCMaximizeKey = None;
+  WindowShortcut9Key = None;
+  HelpBalloons = NO;
+  WindowSnapping = NO;
+  KeepAtBottomKey = None;
+  AutoArrangeIcons = YES;
+  KeepOnTopKey = None;
+  MoveResizeKey = None;
+  ClipTitleColor = "#ffffff";
+  AppIconBalloons = NO;
+  MoveHalfMaximizedWindowsBetweenScreens = NO;
   WaitCursor = (
     bitmap,
-    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_wait.xbm",
-    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_wait_mask.xbm"
+    "/usr/share/WindowMaker/Themes/Where.themed/dot_wait.xbm",
+    "/usr/share/WindowMaker/Themes/Where.themed/dot_wait_mask.xbm"
   );
-  AutoArrangeIcons = YES;
-  MenuTitleColor = "#ffffff";
-  WindowShortcut6Key = None;
-  WorkspaceNameDisplayPosition = center;
-  MenuTextExtendSpace = "-1";
-  WindowShortcut7Key = None;
-  FTitleColor = "#ffffff";
-  AppIconBalloons = NO;
-  VirtualEdgeUpKey = None;
-  WorkspaceBack = (
-    tpixmap,
-    "/home/liquuid/GNUstep/Library/WindowMaker/Backgrounds/wallpaper_leaves.jpg",
-    gray20
-  );
-  HideOthersKey = None;
-  SmoothWorkspaceBack = YES;
-  VirtualEdgeRightKey = None;
+  FrameFocusedBorderColor = "#000000";
+  WindowTitleFont = "lucida:pixelsize=16";
+  MoveToWorkspace8Key = None;
+  WindowPlaceOrigin = (0, 0);
+  RunKey = None;
+  LHMaximizeKey = None;
+  MoveToPrevWorkspaceKey = None;
+  ResizebarBack = (hgradient, black, "#60707f");
   DCMaximize = NO;
-  UTitleColor = "#999999";
+  MoveToWorkspace6Key = None;
+  MiniPreviewSize = 80;
+  DisplayFont = "-*-helvetica-medium-r-*-*-10-*-*-*-*-*-*-*";
+  MoveToWorkspace10Key = None;
+  KbdModeLock = NO;
+  BHMaximizeKey = None;
+  MouseBackwardButtonAction = None;
+  CycleActiveHeadOnly = NO;
+  VirtualEdgeRightKey = None;
+  VirtualEdgeDownKey = None;
+  MenuTitleExtendSpace = "-1";
+  MoveToWorkspace1Key = None;
+  IgnoreGtkHints = NO;
+  ShowClipTitle = YES;
+  WindowShortcut1Key = None;
+  RHMaximizeKey = None;
+  FrameSelectedBorderColor = "#ffffff";
+  THMaximizeKey = None;
+  AlternativeHalfMaximized = NO;
+  WindowShortcut2Key = None;
+  MoveToNextWorkspaceLayerKey = None;
+  WorkspaceMapKey = None;
+  ToggleKbdModeKey = None;
+  DragMaximizedWindow = RestoreGeometry;
+  DoNotMakeAppIconsBounce = NO;
+  MiniwindowTitleBalloons = NO;
+  MaximusKey = None;
+  WindowShortcut7Key = None;
+  OpaqueResize = YES;
+  MenuTextBack = (mdgradient, "#838d99", "#838d99", "#838d99", "#f2f6ff", "#b9c6cf");
+  RaiseAppIconsWhenBouncing = NO;
+  ResizeIncrement = 0;
+  UShadowColor = black;
+  WindowShortcut8Key = None;
+  OpaqueMoveResizeKeyboard = NO;
+  PShadowColor = grey10;
+  MoveToLastWorkspaceKey = None;
+  TitleJustify = right;
+  GroupNextKey = None;
+  MenuTextColor = "#000000";
+  SingleClickLaunch = NO;
+  Attraction = NO;
+  IconBack = (dgradient, "#b8c2cc", "#262e39");
+  AntialiasedText = NO;
+  DisableBlinking = NO;
+  MoveToWorkspace5Key = None;
+  WindowTitleExtendSpace = "-1";
+  NormalCursor = (builtin, left_ptr);
+  WorkspaceNameDisplayPosition = center;
+  FShadowColor = black;
+  MenuTextFont = "lucida:pixelsize=13";
+  MShadowColor = black;
+  NoWindowOverIcons = YES;
+  ScreenSwitchKey = None;
+  MenuTitleBack = (dgradient, "#ffbf01", "#88845f");
+  SnapCornerDetect = 10;
+  MoveToNextWorkspaceKey = None;
+  MouseWheelAction = SwitchWorkspaces;
+  HMaximizeKey = None;
+  SnapToTopMaximizesFullscreen = NO;
+  CloseKey = "Mod1+F4";
+  HighlightColor = "#000000";
+  FocusMode = sloppy;
+  GroupPrevKey = None;
+  PointerWithHalfMaxWindows = NO;
+  MoveToWorkspace3Key = None;
+  MinimizeAllKey = None;
+  CClipTitleColor = "#999999";
+  MoveCursor = (
+    bitmap,
+    "/usr/share/WindowMaker/Themes/Where.themed/dot_move.xbm",
+    "/usr/share/WindowMaker/Themes/Where.themed/dot_move_mask.xbm"
+  );
+  WindowShortcut5Key = None;
+  MenuStyle = flat;
+  HideOthersKey = None;
   IconPath = (
     "/home/liquuid/GNUstep/Library/Icons",
     "/usr/share/WindowMaker/Icons",
@@ -82,31 +168,17 @@
     "/usr/share/pixmaps",
     "/home/liquuid/.icons/LeopardX-Beta2/scalable/apps/48"
   );
-  MShadowColor = black;
-  PTitleColor = "#999999";
-  ResizeCursor = (
-    bitmap,
-    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_resize.xbm",
-    "/home/liquuid/GNUstep/Library/WindowMaker/Themes/borderline05.themed/dot_resize_mask.xbm"
-  );
-  Attraction = NO;
-  FShadowColor = grey30;
-  DontLinkWorkspaces = NO;
-  KbdModeLock = NO;
-  HelpBalloons = NO;
-  SingleClickLaunch = NO;
-  WindowPlaceOrigin = (0, 0);
-  WindowPlacement = smart;
+  PTitleBack = (hgradient, "#60707f", "#363f4e");
+  MenuTextExtendSpace = "-1";
+  WindowShortcut6Key = None;
+  UTitleColor = "#202833";
+  ViKeyMenus = NO;
+  BounceAppIconsWhenUrgent = YES;
+  UTitleBack = (hgradient, "#60707f", "#363f4e");
+  HighlightActiveApp = YES;
   CirculateRaise = NO;
-  WindowShortcut8Key = None;
-  CClipTitleColor = gray30;
-  ScreenSwitchKey = None;
-  WindowShortcut9Key = None;
-  PShadowColor = grey30;
-  IconTitleBack = "#bd7a00";
-  IconTitleColor = white;
-  UShadowColor = black;
-  HMaximizeKey = None;
-  MouseWheelAction = SwitchWorkspaces;
-  DisableBlinking = NO;
+  PTitleColor = "#202833";
+  StickyIcons = YES;
+  MoveToWorkspace4Key = None;
+  RTCMaximizeKey = None;
 }

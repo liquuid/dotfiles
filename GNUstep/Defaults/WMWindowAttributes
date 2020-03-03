@@ -29,6 +29,9 @@
   Archive.Archive = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/Archive.Archive.xpm";
   };
+  hexchat.Hexchat = {
+    Icon = XChat.png;
+  };
   "Extension.Gran Paradiso" = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/Extension.Gran Paradiso.xpm";
   };
@@ -62,11 +65,11 @@
   gqview.Gqview = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/gqview.Gqview.xpm";
   };
-  gtkpod.Gtkpod = {
-    Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/gtkpod.Gtkpod.xpm";
-  };
   "Eterm 0.9.4.Eterm" = {
     Icon = GNUterm.tiff;
+  };
+  gtkpod.Gtkpod = {
+    Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/gtkpod.Gtkpod.xpm";
   };
   qmc2.Qmc2 = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/qmc2.Qmc2.xpm";
@@ -162,6 +165,9 @@
   sylpheed.Sylpheed = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/sylpheed.Sylpheed.xpm";
   };
+  thunar.Thunar = {
+    Icon = thunar.Thunar.xpm;
+  };
   "gnome-keyring-ask.Gnome-keyring-ask" = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/gnome-keyring-ask.Gnome-keyring-ask.xpm";
   };
@@ -180,12 +186,18 @@
   cinelerra.Cinelerra = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/cinelerra.Cinelerra.xpm";
   };
+  kdenlive.kdenlive = {
+    Icon = kdenlive.kdenlive.xpm;
+  };
   transmission.Transmission = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/transmission.Transmission.xpm";
     StartWorkspace = pirataria;
   };
+  clementine.Clementine = {
+    Icon = exaile.png;
+  };
   VirtualBox.VirtualBox = {
-    Icon = VBox.png;
+    Icon = EscherCube.xpm;
   };
   juk.Juk = {
     Icon = "/home/liquuid/GNUstep/Library/WindowMaker/CachedPixmaps/juk.Juk.xpm";
