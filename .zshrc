@@ -110,3 +110,6 @@ alias manage='python $VIRTUAL_ENV/../manage.py'
 alias clear_docker="docker rmi `docker images | awk '{ print $3 }'`"
 alias l="ls -l"
 alias la="ls -la"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

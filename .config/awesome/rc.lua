@@ -87,11 +87,12 @@ local themes = {
     "powerarrow-blue", -- 1
     "powerarrow",      -- 2
     "multicolor",      -- 3
+    "ghost",      -- 4
 
 }
 
 -- choose your theme here
-local chosen_theme = themes[1]
+local chosen_theme = themes[4]
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
@@ -106,7 +107,7 @@ local modkey1      = "Control"
 local browser           = "firefox"
 local editor            = os.getenv("EDITOR") or "vim"
 local editorgui         = "code"
-local filemanager       = "thunar"
+local filemanager       = "pcmanfm-qt"
 local mailclient        = "geary"
 local mediaplayer       = "mpv"
 local scrlocker         = "slimlock"
@@ -727,8 +728,8 @@ awful.rules.rules = {
     },
 
     -- Titlebars
-    { rule_any = { type = { "dialog", "normal" } },
-      properties = { titlebars_enabled = false } },
+    --{ rule_any = { type = { "dialog", "normal" } },
+    --  properties = { titlebars_enabled = false } },
 
     -- Set applications to always map on the tag 1 on screen 1.
     -- find class or role via xprop command
@@ -914,4 +915,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
--- awful.spawn.with_shell("compton --config  $HOME/.config/compton/compton.conf")
+-- awful.spawn.with_shell("compton --config  $HOME/.config/compton.conf")
