@@ -173,6 +173,7 @@ net*
 .xchat2/
 .xdvirc
 .xinitrc
+.xsession
 .xsession-errors
 .xsession-errors.old
 .yarnrc
