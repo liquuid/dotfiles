@@ -111,21 +111,21 @@ local filemanager       = "pcmanfm-qt"
 local mailclient        = "geary"
 local mediaplayer       = "mpv"
 local scrlocker         = "slimlock"
-local terminal          = "terminator"
+local terminal          = "sakura"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
 awful.util.terminal = terminal
 -- awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
---awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
+-- awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " VBOX ", " MEDIA " }
+awful.util.tagnames = { " WWW ", " DEV ", " SYS ", " VBOX ", " MEDIA " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -270,7 +270,7 @@ globalkeys = my_table.join(
     -- dmenu
     awful.key({ modkey }, "r",
     function ()
-        awful.spawn(string.format("dmenu_run -i  -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -fn 'UbuntuMono Nerd Font:bold:pixelsize=14'",
+        awful.spawn(string.format("dmenu_run -i  -nb '#000000' -nf '#22adad' -sb '#22adad' -sf '#000000' -fn 'Noto Sans Regular Medium:bold:pixelsize=14'",
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	end,
     {description = "show dmenu", group = "hotkeys"}),
@@ -733,11 +733,11 @@ awful.rules.rules = {
 
     -- Set applications to always map on the tag 1 on screen 1.
     -- find class or role via xprop command
-    --{ rule = { class = browser1 },
-      --properties = { screen = 1, tag = awful.util.tagnames[1] } },
+    ---{ rule = { class = browser1 },
+    --  properties = { screen = 1, tag = awful.util.tagnames[1] } },
 
-    --{ rule = { class = editorgui },
-        --properties = { screen = 1, tag = awful.util.tagnames[2] } },
+    --{ rule = { class = sakura },
+    --  properties = { screen = 1, tag = awful.util.tagnames[2] } },
 
     --{ rule = { class = "Geany" },
         --properties = { screen = 1, tag = awful.util.tagnames[2] } },
