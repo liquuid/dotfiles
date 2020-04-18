@@ -68,6 +68,12 @@
     then echo usage: $0 name ...; fi
     for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 21 ${i:r}.x265_21.mkv; done
 }
+..x265_r(){
+    for d in *; do
+      ( cd $d ; ls -l ;..x265_r ; echo $pwd; )
+    done
+} 
+
 ..x264_23(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi

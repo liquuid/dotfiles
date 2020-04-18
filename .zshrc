@@ -1,8 +1,8 @@
 export TERM="xterm-256color"
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/liquuid/.zshrc'
@@ -18,6 +18,7 @@ export PATH=$PATH:/usr/local/bin
 export GOPATH=~/go
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH=$PATH:/var/lib/snapd/snap/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export LC_ALL="pt_BR.UTF-8"
 #alias ls="exa"
 alias ls="ls --color"
