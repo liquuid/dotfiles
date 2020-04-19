@@ -32,41 +32,41 @@
 ..gx265_23(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -hwaccel vaapi -n -i $i -c:a copy -c:s copy -vaapi_device /dev/dri/renderD128 -c:v hevc_vaapi -crf 23 -vf 'format=nv12,hwupload' -f matroska ${i:r}.gx265_23.mkv; done
+    for i; do ffmpeg -hwaccel vaapi -n -i $i -map 0 -c:a copy -c:s copy -vaapi_device /dev/dri/renderD128 -c:v hevc_vaapi -crf 23 -vf 'format=nv12,hwupload' -f matroska ${i:r}.gx265_23.mkv; done
 }
 
 ..x265_51(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 51 ${i:r}.x265_51.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 51 ${i:r}.x265_51.mkv; done
 }
 
 
 ..x265_32(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 32 ${i:r}.x265_32.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 32 ${i:r}.x265_32.mkv; done
 }
 
 ..x265_28(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 28 ${i:r}.x265_28.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 28 ${i:r}.x265_28.mkv; done
 }
 ..x265_25(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 25 ${i:r}.x265_25.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 25 ${i:r}.x265_25.mkv; done
 }
 ..x265_23(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 23 ${i:r}.x265_23.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 23 ${i:r}.x265_23.mkv; done
 }
 ..x265_21(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx265 -crf 21 ${i:r}.x265_21.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 21 ${i:r}.x265_21.mkv; done
 }
 ..x265_r(){
     for d in *; do
@@ -77,22 +77,22 @@
 ..x264_23(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 23 ${i:r}.x264_23.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx264 -crf 23 ${i:r}.x264_23.mkv; done
 }
 ..x264_25(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 25 ${i:r}.x264_25.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx264 -crf 25 ${i:r}.x264_25.mkv; done
 }
 ..x264_28(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 28 ${i:r}.x264_28.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx264 -crf 28 ${i:r}.x264_28.mkv; done
 }
 ..x264_30(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
-    for i; do ffmpeg -n -i $i -c:a copy -c:s copy -c:v libx264 -crf 30 ${i:r}.x264_30.mkv; done
+    for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx264 -crf 30 ${i:r}.x264_30.mkv; done
 }
 ..cpufreq(){
     cat /proc/cpuinfo | grep "cpu MH"
