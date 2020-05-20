@@ -23,6 +23,7 @@ run "xset -dpms"
 run "xset s off"
 run "transmission-qt -m"
 run "clementine"
+run "zeal"
 #run "conky -c $HOME/.config/awesome/system-overview"
 
 #run applications from startup

@@ -107,7 +107,7 @@ local modkey1      = "Control"
 local browser           = "firefox"
 local editor            = os.getenv("EDITOR") or "vim"
 local editorgui         = "code"
-local filemanager       = "dolphin"
+local filemanager       = "krusader"
 local mailclient        = "kmail"
 local mediaplayer       = "mpv"
 local scrlocker         = "slimlock"
@@ -320,6 +320,10 @@ globalkeys = my_table.join(
     -- Liquuid apps
     awful.key({ modkey }, "F1", function () awful.util.spawn( filemanager ) end,
         {description = "filemanager" , group = "filemanager" }),
+    awful.key({ modkey }, "F2", function () awful.util.spawn("surf courses.packtpub.com" ) end,
+        {description = "e-learning" , group = "web" }),
+    awful.key({ modkey }, "F3", function () awful.util.spawn("code" ) end,
+        {description = "visual studio code" , group = "editors" }),
 
 
 
