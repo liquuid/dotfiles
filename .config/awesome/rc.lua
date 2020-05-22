@@ -104,7 +104,7 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "firefox"
+local browser           = "firefox-bin"
 local editor            = os.getenv("EDITOR") or "vim"
 local editorgui         = "code"
 local filemanager       = "krusader"
@@ -208,7 +208,7 @@ beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/theme
 local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
     { "manual", terminal .. " -e 'man awesome'" },
-    { "edit config", "st vim /home/dt/.config/awesome/rc.lua" },
+    { "edit config", terminal .." -e vim ".. os.getenv("HOME") .. "/.config/awesome/rc.lua" },
     { "arandr", "arandr" },
     { "restart", awesome.restart },
 }
