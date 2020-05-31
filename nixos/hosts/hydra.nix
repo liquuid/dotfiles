@@ -112,6 +112,11 @@
 
   swapDevices = [ ];
 
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.docker.enable = true;
+  users.extraGroups.vboxusers.members = [ "liquuid" ];
+
   nix.maxJobs = lib.mkDefault 12;
   # High-DPI console
   #console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
@@ -188,7 +193,6 @@
      krusader pcmanfm spaceFM nitrogen rofi dmenu sakura st fira-code fira-code-symbols fira-mono
      SDL2
      SDL2_image
-     virtualbox
      vagrant
      yakuake
      okular
@@ -200,7 +204,7 @@
      jetbrains.pycharm-professional
      jetbrains.goland
      tree
-     stremio
+     wacomtablet
 
   ];
 
@@ -246,7 +250,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liquuid = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
   # This value determines the NixOS release from which the default
