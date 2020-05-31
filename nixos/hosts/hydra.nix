@@ -1,12 +1,34 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config,lib, pkgs, ... }:
-
 {
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "20.03"; # Did you read the comment?
+  
   imports =
-    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    [ 
+      <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../modules/sys/debug.nix
+      ../modules/sys/aliases.nix
+      ../modules/sys/scripts.nix
+      ../modules/sys/tty.nix
+
+      ../modules/boot/efi.nix
+      ../modules/boot/multiboot.nix
+
+      ../modules/services/common.nix
+      ../modules/services/x.nix
+      
+      ../modules/x/awesome.nix
+      ../modules/x/fonts.nix
+
+      ../modules/packages/x-common.nix
+      ../modules/packages/x-extra.nix
+
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
@@ -144,7 +166,7 @@
    i18n.defaultLocale = "pt_BR.UTF-8";
    console = {
      font = "Lat2-Terminus16";
-     keyMap = "br-abnt2";
+     #keyMap = "br-abnt2";
    };
 
   # Set your time zone.
@@ -155,57 +177,34 @@
    environment.systemPackages = with pkgs; [
      zeal 
      wget 
-     xfce.xfce4-power-manager
-     networkmanager_dmenu
-     clementine
-     transmission-gtk
+     
      insomnia
      docker
      docker-compose
      vscode-with-extensions
-     gimp
-     inkscape
-     krita
-     lmms
+
      go
      vim 
      micro 
      xterm 
-     mpv  
      ffmpeg
      x264
      x265
-     vscode 
-     git
-     tig
-     htop 
-     kdenlive
-     blender
-     dstat 
+
      python3 
-     arandr 
-     arduino
-     codeblocks
-     firefox-bin 
-     brave 
      audacity
      gcc
-     krusader pcmanfm spaceFM nitrogen rofi dmenu sakura st fira-code fira-code-symbols fira-mono
      SDL2
      SDL2_image
      vagrant
      yakuake
      okular
      gwenview
-     p7zip
+     
      ark
      obs-studio
-     jetbrains.webstorm
-     jetbrains.pycharm-professional
-     jetbrains.goland
-     tree
-     wacomtablet
 
+     python37Packages.youtube-dl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -241,15 +240,11 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.layout = "br";
+  
   #services.xserver.xkbOptions = "eurosign:e";
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
-
-  # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liquuid = {
@@ -257,12 +252,6 @@
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.03"; # Did you read the comment?
+
 
 }

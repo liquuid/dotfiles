@@ -10,7 +10,7 @@
   #  client.enable = true;
   #};
 
-  services.ratbagd.enable = true;
+  services.ratbagd.enable = false;
 
   services.udisks2.enable = true;
   # services.devmon.enable = true;
@@ -74,12 +74,12 @@
       Option "OffTime" "0"
     '';
 
-    desktopManager.plasma5.enable = false;
+    
     displayManager.sddm = {
-      enable = false;
+      enable = true;
     };
     displayManager.lightdm = {
-      enable = true;
+      enable = false;
       background = "/etc/nixos/assets/displayManager.png";
 
       greeters.enso = {
@@ -125,13 +125,14 @@
       };
     };
 
-    layout = "us,ru";
+    layout = "br,us";
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
       xterm.enable = false;
       gnome3.enable = false;
       pantheon.enable = false;
       lxqt.enable = false;
+      plasma5.enable = true;
     };
   };
 
@@ -195,7 +196,7 @@
     };
 
     variables = {
-      VISUAL = "nvim";
+      VISUAL = "vim";
       BROWSER = "firefox";
     };
   };

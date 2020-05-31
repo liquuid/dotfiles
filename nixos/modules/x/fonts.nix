@@ -19,16 +19,19 @@
 
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
-        vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel
-        vistafonts-chs # Microsoft YaHei
+        #vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel
+        #vistafonts-chs # Microsoft YaHei
 
         # Dev fonts
-        (nerdfonts.override { fonts = [ "Terminus" "Hermit" ]; })
-        cozette
+        #(nerdfonts.override { fonts = [ "Terminus" "Hermit" ]; })
+        #cozette
         siji # https://github.com/stark/siji
         # tamsyn # http://www.fial.com/~scott/tamsyn-font/
         powerline-fonts
         ankacoder
+        fira-code
+        fira-code-symbols
+        fira-mono
       ];
   };
 

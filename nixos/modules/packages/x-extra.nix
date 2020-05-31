@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
-let
-  stable = import <stable> {
-    config = config.nixpkgs.config;
-  };
-in
+{ config, pkgs, lib, ... }:
+#let
+#  stable = import <stable> {
+#    config = config.nixpkgs.config;
+#  };
+#in
 {
   # services.flatpak.enable = false;
   # xdg.portal.enable = false; # flatpak dep
@@ -15,7 +15,7 @@ in
     [
       # work
       # syncthing
-      upwork
+      # upwork
       # memtest86-efi
       # os-prober
 
@@ -32,12 +32,14 @@ in
       # appimage-run
       cura
       google-chrome
-      chromium
-      vivaldi
+      #chromium
+      #vivaldi
       gimp
       inkscape
       blender
       openscad
+      firefox-bin
+      brave
 
       # themes
       # pop-gtk-theme
@@ -60,8 +62,9 @@ in
       glava
       audacious
       lmms
-      vlc
-      stable.kodi
+      #vlc
+      kodi
+      clementine
       cmus # Small, fast and powerful console music player for Linux and *BSD
       # fluidsynth # Real-time software synthesizer based on the SoundFont 2 specifications
       # mikmod # Tracker music player for the terminal
@@ -71,20 +74,33 @@ in
       google-play-music-desktop-player
       # shortwave # online radio
 
-      shotcut # video editor
-      openshot-qt
+      #shotcut # video editor
+      #openshot-qt
+      kdenlive
 
       # dev
       # lazygit
       rclone-browser
-      cool-retro-term
-      kitty
-      roxterm
+      #cool-retro-term
+      #kitty
+      #roxterm
       asciinema
+      arduino
+      codeblocks
+      vscode
+      jetbrains.webstorm
+      jetbrains.pycharm-professional
+      jetbrains.goland
 
       # sys
       tightvnc
       winusb
+      git
+      tig
+      htop 
+      dstat
+      tree
+
 
       # Freelance
       masterpdfeditor

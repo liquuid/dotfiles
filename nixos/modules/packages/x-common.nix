@@ -28,12 +28,13 @@ in
 
       # mouse
       piper
+      wacomtablet
 
       # xmonad defaults
       conky
       xdotool
       seturgent
-      stylish-haskell
+      #stylish-haskell
       alacritty
       rxvt-unicode
       firefoxWrapper
@@ -49,7 +50,7 @@ in
       # themes
       lxappearance-gtk3
       vanilla-dmz
-      ant-dracula-theme
+      #ant-dracula-theme
       papirus-icon-theme
       papirus-maia-icon-theme
 
@@ -74,6 +75,7 @@ in
       xorg.xfontsel
       xorg.xfd
       xorg.xkbcomp
+      
 
       # sec
       qtox
