@@ -221,7 +221,11 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  nixpkgs.config.allowUnfree = true ;
+  services.nfs.server.enable = true;
+  nixpkgs.config.allowUnfree = true;
+  networking.firewall.extraCommands = ''
+    ip46tables -I INPUT 1 -i vboxnet+ -p tcp -m tcp --dport 2049 -j ACCEPT
+  '';
 # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
