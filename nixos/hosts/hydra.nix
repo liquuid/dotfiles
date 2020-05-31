@@ -14,6 +14,10 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  hardware.pulseaudio.support32Bit = true;
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/6e5b74c3-b8af-411b-b5b5-40fb8f95835f";
       fsType = "btrfs";
@@ -100,7 +104,12 @@
     fsType = "btrfs";
     options = [ "subvol=@steam"];	
   };	
+  fileSystems."/home/liquuid/.var/app/com.valvesoftware.Steam" = 
+  { device = "/home/liquuid/Steam/com.valvesoftware.Steam";
+    options = ["bind"];	
+  };	
  
+
   swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 12;
@@ -187,7 +196,11 @@
      p7zip
      ark
      obs-studio
-     #steam
+     jetbrains.webstorm
+     jetbrains.pycharm-professional
+     jetbrains.goland
+     tree
+     stremio
 
   ];
 
