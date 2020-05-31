@@ -29,6 +29,10 @@
       ../modules/packages/x-common.nix
       ../modules/packages/x-extra.nix
 
+      ../modules/packages/absolutely-proprietary.nix
+      ../modules/packages/common.nix
+      ../modules/packages/dev.nix
+
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
@@ -175,23 +179,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-     zeal 
-     wget 
-     
-     insomnia
-     docker
-     docker-compose
-     vscode-with-extensions
 
-     go
+     vscode-with-extensions
      vim 
-     micro 
+      
      xterm 
      ffmpeg
      x264
      x265
-
-     python3 
+ 
      audacity
      gcc
      SDL2
@@ -204,7 +200,6 @@
      ark
      obs-studio
 
-     python37Packages.youtube-dl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

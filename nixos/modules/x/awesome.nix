@@ -13,7 +13,6 @@ in
     in
       [
         polybar
-        xlsfonts
         xcape
         nitrogen
         networkmanager_dmenu
@@ -25,7 +24,6 @@ in
         pulsemixer
         krusader
         pcmanfm
-        spaceFM
         dmenu
         sakura
         st

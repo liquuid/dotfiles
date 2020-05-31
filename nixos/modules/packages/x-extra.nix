@@ -85,22 +85,10 @@
       #kitty
       #roxterm
       asciinema
-      arduino
-      codeblocks
-      vscode
-      jetbrains.webstorm
-      jetbrains.pycharm-professional
-      jetbrains.goland
 
       # sys
       tightvnc
       winusb
-      git
-      tig
-      htop 
-      dstat
-      tree
-
 
       # Freelance
       masterpdfeditor

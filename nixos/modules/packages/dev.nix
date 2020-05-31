@@ -23,12 +23,14 @@ in
   environment.systemPackages = with pkgs;
     [
       emacs
+      micro
 
       # docs
       zeal
 
       # api
       curlie
+      insomnia
 
       # sql
       # pgadmin
@@ -37,13 +39,15 @@ in
 
       # images
       imagemagick
-
+      
       # tools
-      stable.nixpkgs-fmt
+      #stable.nixpkgs-fmt
       ngrok
       direnv
       inotify-tools
       gitg
+      git
+      tig
 
       # langs
       go
@@ -52,7 +56,18 @@ in
       # arduino
       arduino
       arduino-core
-      stable.fritzing
+      fritzing
       ino
+
+      # IDEs
+      codeblocks
+      vscode
+      jetbrains.webstorm
+      jetbrains.pycharm-professional
+      jetbrains.goland
+
+      #container
+      docker
+      docker-compose
     ];
 }

@@ -7,7 +7,6 @@ in
 {
   nix = {
     useSandbox = true;
-    maxJobs = lib.mkDefault 2;
     extraOptions = ''
       connect-timeout = 10 
       http-connections = 4
@@ -64,6 +63,7 @@ in
       usbutils # lsusb
       psmisc # pstree, killall
       inetutils
+      dstat
 
       # sec
       # tomb
