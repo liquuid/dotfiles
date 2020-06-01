@@ -35,16 +35,16 @@
   #       emacs-pull = clone "https://github.com/syl20bnr/spacemacs" "${home}/.emacs.d" "master";
   #     };
 
-  users.defaultUserShell = pkgs.fish;
-  i18n.defaultLocale = "en_US.UTF-8";
+  users.defaultUserShell = pkgs.zsh;
+  i18n.defaultLocale = "pt_BR.UTF-8";
 
-  time.timeZone = "Europe/Moscow";
-  location.latitude = 55.75;
-  location.longitude = 37.61;
+  time.timeZone = "America/Sao_Paulo";
+  location.latitude = 23.32;
+  location.longitude = 46.38;
 
   environment = {
     variables = {
-      EDITOR = "nvim";
+      EDITOR = "vim";
     };
   };
 

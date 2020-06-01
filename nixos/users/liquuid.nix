@@ -27,15 +27,15 @@
       home.file.".config/conky/conky-lyrics.conf".source = ../home/.config/conky/conky-lyrics.conf;
       home.file.".config/conky/launch.sh".source = ../home/.config/conky/launch.sh;
 
-      home.file.".config/polybar/launch.sh".source = ../home/.config/polybar/launch.sh;
-      home.file.".config/polybar/config".source = ../home/.config/polybar/config;
-      home.file.".config/polybar/gpmdp-next.sh".source =
-        ../home/.config/polybar/gpmdp-next.sh;
-      home.file.".config/polybar/gpmdp-rewind.sh".source =
-        ../home/.config/polybar/gpmdp-rewind.sh;
-      home.file.".config/polybar/gpmdp.sh".source = ../home/.config/polybar/gpmdp.sh;
-      home.file.".config/polybar/local_and_public_ips.sh".source =
-        ../home/.config/polybar/local_and_public_ips.sh;
+      #home.file.".config/polybar/launch.sh".source = ../home/.config/polybar/launch.sh;
+      #home.file.".config/polybar/config".source = ../home/.config/polybar/config;
+      #home.file.".config/polybar/gpmdp-next.sh".source =
+      #  ../home/.config/polybar/gpmdp-next.sh;
+      #home.file.".config/polybar/gpmdp-rewind.sh".source =
+      #  ../home/.config/polybar/gpmdp-rewind.sh;
+      #home.file.".config/polybar/gpmdp.sh".source = ../home/.config/polybar/gpmdp.sh;
+      #home.file.".config/polybar/local_and_public_ips.sh".source =
+      #  ../home/.config/polybar/local_and_public_ips.sh;
 
       home.file.".config/rofi/joker.rasi".source = ../home/.config/rofi/joker.rasi;
       home.file.".config/rofi/config.rasi".source = ../home/.config/rofi/config.rasi;
@@ -47,9 +47,9 @@
       home.file.".config/roxterm.sourceforge.net/Global".source =
         ../home/.config/roxterm.sourceforge.net/Global;
 
-      home.file.".config/alacritty/alacritty.yml".source = ../home/.config/alacritty/alacritty.yml;
+      #home.file.".config/alacritty/alacritty.yml".source = ../home/.config/alacritty/alacritty.yml;
 
-      home.file.".config/mpv/mpv.conf".source = ../home/.config/mpv/mpv.conf;
+      #home.file.".config/mpv/mpv.conf".source = ../home/.config/mpv/mpv.conf;
 
       # home.file.".icons/default/index.theme".text = ''
       #   [Icon Theme]

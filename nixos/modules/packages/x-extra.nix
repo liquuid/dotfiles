@@ -73,6 +73,7 @@
       # vorbis-tools # Extra tools for Ogg-Vorbis audio codec
       google-play-music-desktop-player
       # shortwave # online radio
+      audacity
 
       #shotcut # video editor
       #openshot-qt

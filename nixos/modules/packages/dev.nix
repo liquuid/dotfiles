@@ -52,6 +52,7 @@ in
       # langs
       go
       elixir
+      gcc
 
       # arduino
       arduino
@@ -62,6 +63,7 @@ in
       # IDEs
       codeblocks
       vscode
+      vscode-with-extensions
       jetbrains.webstorm
       jetbrains.pycharm-professional
       jetbrains.goland
@@ -69,5 +71,6 @@ in
       #container
       docker
       docker-compose
+      vagrant
     ];
 }

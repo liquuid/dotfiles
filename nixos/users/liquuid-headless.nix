@@ -38,14 +38,14 @@
       # home.file.".config/nvim/init.vim".source = ../home/.config/nvim/init.vim;
       home.file.".config/nvim/coc-settings.json".source = ../home/.config/nvim/coc-settings.json;
 
-      home.file.".config/fish/config.fish".source = ../home/.config/fish/config.fish;
-      home.file.".config/fish/fishfile".source = ../home/.config/fish/fishfile;
-      home.file.".config/fish/functions/git_aliases.fish".source =
-        ../home/.config/fish/functions/git_aliases.fish;
-      home.file.".config/fish/functions/fish_prompt.fish".source =
-        ../home/.config/fish/functions/fish_prompt.fish;
-      home.file.".config/fish/functions/fish_print_git_action.fish".source =
-        ../home/.config/fish/functions/fish_print_git_action.fish;
+      #home.file.".config/fish/config.fish".source = ../home/.config/fish/config.fish;
+      #home.file.".config/fish/fishfile".source = ../home/.config/fish/fishfile;
+      #home.file.".config/fish/functions/git_aliases.fish".source =
+      #  ../home/.config/fish/functions/git_aliases.fish;
+      #home.file.".config/fish/functions/fish_prompt.fish".source =
+      #  ../home/.config/fish/functions/fish_prompt.fish;
+      #home.file.".config/fish/functions/fish_print_git_action.fish".source =
+      #  ../home/.config/fish/functions/fish_print_git_action.fish;
     };
   };
 }

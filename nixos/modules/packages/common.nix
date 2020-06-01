@@ -89,7 +89,9 @@ in
       websocat
       brightnessctl
       youtube-dl
-
+      ffmpeg
+      x264
+      x265
 
       # fs
       bind

@@ -22,11 +22,11 @@ in
       wineWowPackages.stable
       # anbox
       #steam
-      stable.lutris
+      #lutris
       playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
       # text 
-      dwarf-fortress
+      #dwarf-fortress
       nethack
       rogue
 

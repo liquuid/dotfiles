@@ -33,12 +33,21 @@
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
 
+      ../modules/packages/games.nix
+      ../modules/hardware/sound.nix
+      ../modules/hardware/ssd.nix
+
+      ../modules/net/firewall-desktop.nix
+      ../users/liquuid.nix
+
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.cleanTmpDir = true;
+  boot.tmpOnTmpfs = true;
 
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
@@ -179,26 +188,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-
-     vscode-with-extensions
-     vim 
-      
-     xterm 
-     ffmpeg
-     x264
-     x265
- 
-     audacity
-     gcc
-     SDL2
-     SDL2_image
-     vagrant
-     yakuake
-     okular
-     gwenview
-     
-     ark
-     obs-studio
+     vim
+     xterm
 
   ];
 

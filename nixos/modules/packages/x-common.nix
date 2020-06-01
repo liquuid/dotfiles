@@ -109,6 +109,16 @@ in
 
       # laptop
       arandr
+
+      SDL2
+      SDL2_image
+     
+      yakuake
+       okular
+      gwenview
+     
+      ark
+      obs-studio
     ];
 
   programs.browserpass.enable = true;
