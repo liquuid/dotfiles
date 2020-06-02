@@ -35,7 +35,7 @@
   #       emacs-pull = clone "https://github.com/syl20bnr/spacemacs" "${home}/.emacs.d" "master";
   #     };
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.bash;
   i18n.defaultLocale = "pt_BR.UTF-8";
 
   time.timeZone = "America/Sao_Paulo";

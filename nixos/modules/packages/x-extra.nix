@@ -50,7 +50,7 @@
       # nordic-polar
       # stable.arc-theme
       # materia-theme
-      # adwaita-qt
+      adwaita-qt
       # arc-icon-theme
       # zafiro-icons
 

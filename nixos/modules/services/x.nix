@@ -75,8 +75,9 @@
     '';
 
     
-    displayManager.sddm = {
-      enable = true;
+    displayManager = {
+      sddm.enable = false;
+      gdm.enable = true;
     };
     displayManager.lightdm = {
       enable = false;
@@ -129,10 +130,10 @@
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
       xterm.enable = false;
-      gnome3.enable = false;
+      gnome3.enable = true;
       pantheon.enable = false;
       lxqt.enable = false;
-      plasma5.enable = true;
+      plasma5.enable = false;
     };
   };
 

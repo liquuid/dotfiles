@@ -23,7 +23,7 @@
       ../modules/services/common.nix
       ../modules/services/x.nix
       
-      ../modules/x/awesome.nix
+      ../modules/x/gnome.nix
       ../modules/x/fonts.nix
 
       ../modules/packages/x-common.nix
@@ -56,12 +56,12 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/6e5b74c3-b8af-411b-b5b5-40fb8f95835f";
       fsType = "btrfs";
-      options = [ "subvol=@nixos" ];
+      options = [ "subvol=@nixos" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd" ];
   };
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/6e5b74c3-b8af-411b-b5b5-40fb8f95835f";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
+      options = [ "subvol=@home" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd" ];
     };
   fileSystems."/boot/" = 
   { device = "/dev/sdb1";
@@ -70,74 +70,74 @@
   fileSystems."/storage/" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@storage"];	
+    options = [ "subvol=@storage" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/attic" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@attic"];	
+    options = [ "subvol=@attic" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/git" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@git"];	
+    options = [ "subvol=@git" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/audio" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@audio"];	
+    options = [ "subvol=@audio" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/backups" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@backups"];	
+    options = [ "subvol=@backups" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/books" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@books"];	
+    options = [ "subvol=@books" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/games" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@games"];	
+    options = [ "subvol=@games" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/incoming" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@incoming"];	
+    options = [ "subvol=@incoming" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/misc" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@misc"];	
+    options = [ "subvol=@misc" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/movies" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@movies"];	
+    options = [ "subvol=@movies" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
   fileSystems."/storage/software" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@software"];	
+    options = [ "subvol=@software" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };
 
 
    fileSystems."/home/liquuid/Downloads/" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@downloads"];	
+    options = [ "subvol=@downloads" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };	
   fileSystems."/home/liquuid/Music/" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@music"];	
+    options = [ "subvol=@music" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };	
   fileSystems."/home/liquuid/Steam/" = 
   { device = "/dev/sda1";
     fsType = "btrfs";
-    options = [ "subvol=@steam"];	
+    options = [ "subvol=@steam" "defaults" "noatime" "space_cache" "autodefrag" "discard" "compress=zstd"];	
   };	
   fileSystems."/home/liquuid/.var/app/com.valvesoftware.Steam" = 
   { device = "/home/liquuid/Steam/com.valvesoftware.Steam";
