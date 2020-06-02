@@ -4,10 +4,12 @@
     [
       ./shared.nix
     ];
-
+  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liquuid = {
+    shell = pkgs.zsh;
     isNormalUser = true;
+    
     extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
   };
 

@@ -11,6 +11,8 @@ in
       gnomeExtensions.appindicator     
       gnome3.gnome-settings-daemon 
       gnome3.gnome-tweaks
+      gnomeExtensions.topicons-plus
+      gnomeExtensions.system-monitor 
       gthumb
       ];
 

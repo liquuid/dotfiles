@@ -48,6 +48,7 @@ in
       file
       memtest86plus
       jq
+      vimPlugins.vim-nix
 
       # monitoring 
       lm_sensors

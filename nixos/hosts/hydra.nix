@@ -168,7 +168,14 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp27s0.useDHCP = true;
+  #networking.interfaces.enp27s0.useDHCP = true;
+  networking.interfaces.enp27s0.ipv4.addresses = [{
+    address = "192.168.0.100";
+    prefixLength = 24;
+  }];
+  networking.defaultGateway = "192.168.0.1";
+  networking.nameservers = [ "8.8.8.8" ];
+
   networking.interfaces.wlp28s0.useDHCP = true;
 
   # Configure network proxy if necessary
