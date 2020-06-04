@@ -7,7 +7,7 @@
   };
 
   services.openssh = {
-    ports = [ 9922 ];
+    ports = [ 22 ];
     enable = true;
     permitRootLogin = "no";
     passwordAuthentication = lib.mkDefault false;
