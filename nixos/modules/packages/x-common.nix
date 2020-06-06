@@ -112,13 +112,21 @@ in
 
       SDL2
       SDL2_image
-     
+      SDL2_mixer
+      SDL
+      SDL_image
+      SDL_mixer
+       xorg.libX11
+      xorg.libXcursor 
+      xorg.libXrandr 
+      xorg.libXinerama
       yakuake
        okular
       gwenview
      
       ark
       obs-studio
+        
     ];
 
   programs.browserpass.enable = true;

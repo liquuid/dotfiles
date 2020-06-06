@@ -48,6 +48,16 @@ in
       gitg
       git
       tig
+      gnumake
+      intltool
+      gettext
+      perlPackages.XMLParser
+      autoconf
+      automake
+      autogen
+      libtool
+      gnome2.glib
+      gnome3.glib
 
       # langs
       go
@@ -67,6 +77,7 @@ in
       jetbrains.webstorm
       jetbrains.pycharm-professional
       jetbrains.goland
+      gnome3.anjuta
 
       #container
       docker

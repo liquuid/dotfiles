@@ -93,6 +93,10 @@ in
       ffmpeg
       x264
       x265
+      shntool
+      squashfsTools
+      libwebp
+      frei0r
 
       # fs
       bind
