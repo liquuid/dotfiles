@@ -134,3 +134,15 @@
     lista=`docker images | awk '{ print $3 }'`
     docker rmi `echo $lista`
 }
+..killh(){
+    for i in `ps aux | grep C: | awk '{ print $2 }'`;do kill -9  $i;done
+}
+..change_git_commit_date(){
+    if (( $# == 0))
+    then echo usage: $0 commit_hash 'date<Sat May 19 01:01:01 2007 -0700>'; return; fi
+    git filter-branch --env-filter \
+        "if [ $GIT_COMMIT = $1 ]
+        then
+            export GIT_COMMITTER_DATE=\"$2\"
+        fi"
+}
