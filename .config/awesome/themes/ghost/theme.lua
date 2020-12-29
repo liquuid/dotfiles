@@ -98,7 +98,7 @@ local markup = lain.util.markup
 -- Textclock
 os.setlocale(os.getenv("LANG")) -- to localize the clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
-local mytextclock = wibox.widget.textclock(markup("#22adad", "%A %d %B ") .. markup("#22adad", ">") .. markup("#22adad", " %H:%M "))
+local mytextclock = wibox.widget.textclock(markup("#22adad", "%A %d %B ") .. markup("#22adad", ">") .. markup("#ffffff", " %H:%M "))
 mytextclock.font = theme.font
 
 -- Calendar
@@ -198,6 +198,7 @@ theme.volume = lain.widget.alsa({
     end
 })
 
+
 -- Net
 local netdownicon = wibox.widget.imagebox(theme.widget_netdown)
 local netdowninfo = wibox.widget.textbox()
@@ -214,6 +215,7 @@ local netupinfo = lain.widget.net({
         netdowninfo:set_markup(markup.fontfg(theme.font, "#22adad", net_now.received .. " "))
     end
 })
+
 
 -- MEM
 local memicon = wibox.widget.imagebox(theme.widget_mem)
@@ -311,10 +313,10 @@ function theme.at_screen_connect(s)
             --mail.widget,
             -- mpdicon,
             -- theme.mpd.widget,
-            netdownicon,
-            netdowninfo,
-            netupicon,
-            netupinfo.widget,
+            -- netdownicon,
+            -- netdowninfo,
+            -- netupicon,
+            -- netupinfo.widget,
             volicon,
             theme.volume.widget,
             memicon,
