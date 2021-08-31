@@ -20,12 +20,14 @@ export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH=$PATH:/var/lib/snapd/snap/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export LC_ALL="pt_BR.UTF-8"
-#alias ls="exa"
+alias df="lfs"
+alias ls="exa"
 alias ls="ls --color"
 #alias steam="flatpak run com.valvesoftware.Steam"
 alias ddu="du -h --max-depth=1"
 alias -s txt=vim
 alias gnome-boxes="GTK_THEME=Adwaita:light gnome-boxes"
+alias dbeaver="flatpak run io.dbeaver.DBeaverCommunity" 
 #export VAGRANT_DEFAULT_PROVIDER=libvirt
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
@@ -114,3 +116,14 @@ alias la="ls -la"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#export JAVA_HOME=CAMINHO_ANOTADO_COM_SUA_VERSÃO
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools

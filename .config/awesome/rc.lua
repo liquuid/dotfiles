@@ -88,6 +88,7 @@ local themes = {
     "powerarrow",      -- 2
     "multicolor",      -- 3
     "ghost",      -- 4
+    "gentoo", -- 5
 
 }
 
@@ -107,7 +108,7 @@ local modkey1      = "Control"
 local browser           = "firefox-bin"
 local editor            = os.getenv("EDITOR") or "vim"
 local editorgui         = "code"
-local filemanager       = "krusader"
+local filemanager       = "thunar"
 local mailclient        = "kmail"
 local mediaplayer       = "mpv"
 local scrlocker         = "slimlock"
@@ -119,7 +120,7 @@ awful.util.terminal = terminal
 -- awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
 -- awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " WWW ", " DEV ", " SYS ", " VBOX ", " MEDIA " }
+awful.util.tagnames = { " WWW ", " DEV ", " SYS ", " VBOX ", " MEDIA ", " CHAT " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
@@ -740,8 +741,8 @@ awful.rules.rules = {
     ---{ rule = { class = browser1 },
     --  properties = { screen = 1, tag = awful.util.tagnames[1] } },
 
-    --{ rule = { class = sakura },
-    --  properties = { screen = 1, tag = awful.util.tagnames[2] } },
+    --- { rule = { class = "Sakura" },
+    --  properties = { screen = 1, tag = awful.util.tagnames[3] } },
 
     --{ rule = { class = "Geany" },
         --properties = { screen = 1, tag = awful.util.tagnames[2] } },
@@ -756,7 +757,21 @@ awful.rules.rules = {
 
     -- Set applications to be maximized at startup.
     -- find class or role via xprop command
+    
 
+    { rule = { class = "Firefox" },
+          properties = { screen = 2, tag = awful.util.tagnames[1] } },
+
+    { rule = { class = "discord" },
+          properties = { screen = 1, tag = awful.util.tagnames[6] } },
+
+
+    { rule = { class = "Clementine" },
+          properties = { screen = 1, tag = awful.util.tagnames[5] } },
+
+    { rule = { class = "Code" },
+          properties = { screen = 1, tag = awful.util.tagnames[2] } },
+          
     { rule = { class = editorgui },
           properties = { maximized = true } },
 

@@ -8,6 +8,7 @@ function run {
 }
 #run "xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal"
 #run "xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
+xrandr --output DisplayPort-0 --mode 1440x900 --output HDMI-A-0 --primary --mode 2560x1080 --pos 1440x0  --rotate normal
 run "nitrogen --restore"
 run "nm-applet"
 #run "caffeine"

@@ -1,4 +1,5 @@
 Arduino
+Android
 Desktop
 Documents
 Downloads
@@ -198,3 +199,4 @@ backup/
 .config/nitrogen/bg-saved.cfg
 .config/nitrogen/nitrogen.cfg
 
+.react-native-cli
