@@ -9,15 +9,15 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-
-  # Use the systemd-boot EFI boot loader.
   nixpkgs.config.allowUnfree = true;
+# Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "i7"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.hostName = "nixos"; # Define your hostname.
+  networking.networkmanager.enable = true;
+  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+#	networking.wireless.networks."liquuidN" = { psk = '3g3g3g3g' } ;
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
@@ -35,22 +35,23 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "pt_BR.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
-    keyMap = "br-abnt2";
-  };
+     font = "Lat2-Terminus16";
+     keyMap = "br-abnt2";
+   };
 
-  services.xserver = {
-  	  
-	  libinput.enable = true;
-	  enable = true;
-          videoDrivers = [ "intel" ];
-	  layout = "br";
-	  displayManager = {
-		  gdm.enable = true;
-	  };
-	  desktopManager.gnome3.enable = true;
-	  windowManager.awesome.enable = true;
-  };
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = ["modesetting"];
+  services.xserver.useGlamor = true;
+
+  # Enable the Plasma 5 Desktop Environment.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  
+
+  # Configure keymap in X11
+  services.xserver.layout = "br";
+  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -58,43 +59,82 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {
+      enableHybridCodec = true; 
+    };
+  };  
+  hardware.opengl = {
+       enable = true;
+       extraPackages = with pkgs; [
+          intel-media-driver
+          vaapiIntel
+          vaapiVdpau
+          libvdpau-va-gl
+  	];
+  };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liquuid = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+     shell = pkgs.zsh;
+     isNormalUser = true;
+     extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-   environment.systemPackages = with pkgs; [
-     wget vim micro dstat tree gotop
+  environment.systemPackages = with pkgs; [
+     wget vim micro dstat tree gotop compsize
      firefox brave
-     vscode git tig dbeaver insomnia go zeal android-studio jetbrains.pycharm-professional
-     xterm xorg.xinit alacritty xclip
+     vscode-fhs git tig dbeaver insomnia go rustc zeal android-studio jetbrains.pycharm-professional charles
+     xterm xorg.xinit alacritty xclip yakuake
      docker docker-compose
-     nodejs-12_x yarn deno
-     python39Full python38Packages.ipython
-     clementine lollypop 
-     steam
-     obs-studio gimp inkscape krita blender kdenlive akira-unstable sakura
-     gnome3.adwaita-icon-theme
-     gnome3.gnome-tweaks
-     gnomeExtensions.appindicator
-     ant-dracula-theme
+     nodejs-14_x yarn deno
+     python39Full python39Packages.ipython
+     clementine lollypop
+     gwenview okular 
+     zsnes sdlmame 
+     obs-studio gimp inkscape krita blender kdenlive akira-unstable sakura ffmpeg-full youtube-dl
+     syncthingtray syncthing transmission-qt
      adoptopenjdk-bin
+     unzip p7zip
+     refind
+     neofetch
+     mpv
+     meslo-lg meslo-lgs-nf
+     killall
+     fortune
+     fvwm xfce.thunar pcmanfm
+     bzip2 celt fontconfig freetype frei0r fribidi game-music-emu gnutls gsm
+     libjack2 ladspaH lame libass libbluray libbs2b libcaca libdc1394 libmodplug
+     libogg libopus libssh libtheora libvdpau libvorbis libvpx libwebp
+     lzma openal libpulseaudio rtmpdump opencore-amr makeWrapper
+     samba plasma5Packages.kamoso 
+     SDL2 python39Packages.future python38Packages.future renpy 
+     soxr mesa speex vid-stab wavpack x264 x265 xavs xvidcore zeromq4 zlib libaom libv4l openssl
+     gcc cmake gnumake nasm yasm pkg-config binutils
+     adapta-kde-theme arc-kde-theme kdeplasma-addons latte-dock plasma-browser-integration libsForQt5.kde2-decoration 
+     gnome.adwaita-icon-theme adwaita-qt
    ];
-    programs.dconf.enable = true;
-    virtualisation.docker.enable = true;
-    programs.adb.enable = true;
-    programs.zsh.ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "python" "man" "adbusers" ];
-      theme = "agnoster";
-    };  
-
-
+  programs.dconf.enable = true;
+  virtualisation.docker.enable = true;
+  programs.adb.enable = true;
+  programs.steam.enable = true;
+  programs.zsh.ohMyZsh = {
+	  enable = true;
+	  plugins = [ "git" "python" "man" "adbusers" ];
+	  theme = "agnoster";
+  };  
+  services.xserver.windowManager.awesome = {
+	enable = true;
+	luaModules = with pkgs.luaPackages; [
+		luarocks
+		luadbi-mysql
+	];
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -107,6 +147,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -119,7 +160,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 
 }
 
