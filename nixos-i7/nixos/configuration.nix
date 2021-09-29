@@ -89,15 +89,15 @@
   environment.systemPackages = with pkgs; [
      wget vim micro dstat tree gotop compsize
      firefox brave
-     vscode-fhs git tig dbeaver insomnia go rustc zeal android-studio jetbrains.pycharm-professional charles
+     vscode-fhs git tig dbeaver insomnia go rustc zeal jetbrains.pycharm-professional 
      xterm xorg.xinit alacritty xclip yakuake
      docker docker-compose
      nodejs-14_x yarn deno
-     python39Full python39Packages.ipython
-     clementine lollypop
+     #python39Full python39Packages.ipython
+     strawberry
      gwenview okular 
      zsnes sdlmame 
-     obs-studio gimp inkscape krita blender kdenlive akira-unstable sakura ffmpeg-full youtube-dl
+     obs-studio gimp inkscape blender kdenlive akira-unstable sakura ffmpeg-full youtube-dl
      syncthingtray syncthing transmission-qt
      adoptopenjdk-bin
      unzip p7zip
@@ -112,13 +112,26 @@
      libjack2 ladspaH lame libass libbluray libbs2b libcaca libdc1394 libmodplug
      libogg libopus libssh libtheora libvdpau libvorbis libvpx libwebp
      lzma openal libpulseaudio rtmpdump opencore-amr makeWrapper
-     samba plasma5Packages.kamoso 
+     samba #kamoso 
      SDL2 python39Packages.future python38Packages.future renpy 
      soxr mesa speex vid-stab wavpack x264 x265 xavs xvidcore zeromq4 zlib libaom libv4l openssl
      gcc cmake gnumake nasm yasm pkg-config binutils
      adapta-kde-theme arc-kde-theme kdeplasma-addons latte-dock plasma-browser-integration libsForQt5.kde2-decoration 
-     gnome.adwaita-icon-theme adwaita-qt
+     adwaita-qt htop gotop libreoffice weston
+     terminator rofi nitrogen dmenu flameshot nnn ranger picom networkmanagerapplet kde-gtk-config krusader
    ];
+  programs.sway = {
+	  enable = true;
+	  wrapperFeatures.gtk = true; # so that gtk works properly
+		  extraPackages = with pkgs; [
+		  swaylock
+			  swayidle
+			  wl-clipboard
+			  mako # notification daemon
+			  alacritty # Alacritty is the default terminal in the config
+			  dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+		  ];
+  };
   programs.dconf.enable = true;
   virtualisation.docker.enable = true;
   programs.adb.enable = true;
