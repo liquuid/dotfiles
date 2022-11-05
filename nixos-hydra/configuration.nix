@@ -22,7 +22,13 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
+  networking.interfaces.enp27s0.ipv4.addresses = [ {
+    address = "192.168.0.100";
+    prefixLength = 24;
+  } ] ;
+  networking.defaultGateway = "192.168.0.1";
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ]; 
+  hardware.enableAllFirmware = true;
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
@@ -37,7 +43,9 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
-
+ 
+  services.flatpak.enable=true;  
+  
   # Enable the X11 windowing system.
   services.xserver = {
           
@@ -47,34 +55,78 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
           displayManager = {
                   gdm.enable = true;
           };
+          desktopManager.plasma5.enable = true;
           desktopManager.gnome.enable = true;
+	  #desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
+	  #	khelpcenter
+          #		print-manager
+	  #	ksshaskpass
+	  #];
+          desktopManager.cde.enable = true;
+          desktopManager.enlightenment.enable = true;
+
+
           windowManager.awesome.enable = true;
           gdk-pixbuf.modulePackages = with pkgs; [ libwebp ];
   };
 
+  services.gnome.evolution-data-server.enable = true;
+  # optional to use google/nextcloud calendar
+  services.gnome.gnome-online-accounts.enable = true;
+  # optional to use google/nextcloud calendar
+  services.gnome.gnome-keyring.enable = true;
+
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
+  hardware.opengl.driSupport32Bit = true;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  #ixpkgs.config.pulseaudio = true;
+  #hardware.pulseaudio = {
+  # enable = true;
+  # package = pkgs.pulseaudioFull;
+  # support32Bit = true;
+  #};
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+hardware.bluetooth.settings = {
+  General = {
+    Enable = "Source,Sink,Media,Socket";
+  };
+};
+ 
   users.users.liquuid = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "dialout" "wheel" "docker" ]; # Enable ‘sudo’ for the user.
   };
-
+  users.extraGroups.vboxusers.members = [ "liquuid" ];
+  #programs.steam = {
+  #
+  #  enable = true;
+  #  remotePlay.openFirewall = true;
+  #  dedicatedServer.openFirewall = true;
+  #};
   environment.systemPackages = with pkgs; [
   # editors
      vim micro
   # tools
-     killall lfs wget p7zip dstat tree gotop iotop gotop dstat htop dig inetutils ncftp nmap iptraf-ng wireshark openvpn jetbrains-mono compsize file
+     killall lfs wget p7zip dstat tree gotop iotop gotop dstat htop dig ncftp nmap iptraf-ng wireshark openvpn jetbrains-mono compsize file nixos-option usbutils unrar 
   # browsers
-     firefox brave chromium
+     firefox brave google-chrome
   # dev tools
-     vscode git tig dbeaver insomnia go zeal android-studio ansible lens 
+    arduino vscode git tig dbeaver insomnia go zeal android-studio ansible lens logisim-evolution 
   # x11 apps
      xterm xorg.xinit alacritty xclip flameshot nitrogen terminator gdk-pixbuf
   # containers
@@ -82,13 +134,13 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
   # nodejs
      nodejs-16_x yarn deno
   # python
-     python39Full python39Packages.ipython
+     python39Full python39Packages.ipython python39Packages.pandas
   # music
-     clementine lollypop lmms hydrogen
+     clementine lollypop lmms hydrogen kid3
   # games 
-     steam citra dolphin-emu yuzu
+    citra dolphin-emu yuzu # steam-run
   # video tools
-     obs-studio kdenlive mpv vlc ffmpegthumbs handbrake 
+     obs-studio kdenlive mpv vlc ffmpegthumbs handbrake ffmpeg-full handbrake
   # graphical tools
     gimp inkscape krita blender
   # office 
@@ -101,25 +153,41 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
      gnome.gedit
      gthumb
      gnomeExtensions.syncthing-indicator
+     sshfs
+     #foliate
   # eng
-     stlink stlink-gui fritzing logisim-evolution openscad cura qucs sigrok-cli
+     # stlink stlink-gui 
+     fritzing logisim-evolution openscad cura qucs sigrok-cli pulseview
   # comunication
-     teams discord remmina tdesktop anydesk
+     teams discord remmina tdesktop anydesk strongswan networkmanager_strongswan
   # p2p
-     transmission nextcloud-client syncthing
+     transmission-gtk nextcloud-client syncthing 
   # misc
+     pcsctools
+     pcsclite
+     scmccid
      adoptopenjdk-bin
      libwebp
-     flatpak
      distrobox
-     virtualbox
      gnome.gnome-boxes
+     sshpass
+     heroku
+     appflowy
+     #dduper
+     ghostscript
+     woeusb
+    plasma5Packages.kdegraphics-thumbnailers
   # fonts 
-    dejavu_fonts open-sans clearlyU cm_unicode corefonts powerline-fonts ankacoder fira-code fira-code-symbols fira-mono font-manager      
+    dejavu_fonts open-sans clearlyU cm_unicode corefonts powerline-fonts ankacoder fira-code fira-code-symbols fira-mono font-manager     
+     
    
   ];
     programs.dconf.enable = true;
     virtualisation.docker.enable = true;
+    virtualisation.virtualbox.host.enable = true;
+    virtualisation.virtualbox.host.enableExtensionPack = true;
+
+  
     programs.adb.enable = true;
     programs.zsh.ohMyZsh = {
       enable = true;
@@ -137,13 +205,19 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
   # };
 
   # List services that you want to enable:
+    services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "* * * * *      root    date >> /tmp/cron.log"
+    ];
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 8000 8080 ];
+  networking.firewall.allowedUDPPorts = [ 8000 8080 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

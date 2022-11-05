@@ -9,24 +9,49 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  nixpkgs.config.allowUnfree = true;
-# Use the systemd-boot EFI boot loader.
+
+  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-#	networking.wireless.networks."liquuidN" = { psk = '3g3g3g3g' } ;
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
+
+
+ nix.extraOptions = ''experimental-features = nix-command flakes'';
+
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  #boot.loader.grub = {
+  #  enable = true;
+  #  device = "nodev";
+  #  version = 2;
+  #  efiSupport = true;
+  #  enableCryptodisk = true;
+  #};
+  
+  #boot.initrd = {
+  #  luks.devices."root" = {
+  #    device = "/dev/disk/by-uuid/dbedef81-d644-43e1-8534-b263fa23c53a";  
+  #    preLVM = true;
+  #    keyFile = "/keyfile.bin";
+  #    allowDiscards = true;
+  #  };
+  #  secrets = {
+      # Create /mnt/etc/secrets/initrd directory and copy keys to it
+  #    "keyfile.bin" = "/etc/secrets/initrd/keyfile.bin";
+  #  };
+#};
+
+
+  networking.hostName = "vaio-i7"; # Define your hostname.
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp1s0f1.useDHCP = true;
-  networking.interfaces.wlp2s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -34,132 +59,130 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "pt_BR.UTF-8";
-  console = {
-     font = "Lat2-Terminus16";
-     keyMap = "br-abnt2";
-   };
+  #console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "br";
+  #   useXkbConfig = true; # use xkbOptions in tty.
+  #};
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = ["modesetting"];
-  services.xserver.useGlamor = true;
-
-  # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
   
+  services.xserver = {
+          
+          libinput.enable = true;
+          enable = true;
+          videoDrivers = [ "intel" ];
+          layout = "br";
+          displayManager = {
+                  gdm.enable = true;
+          };
+          desktopManager.gnome.enable = true;
+          windowManager.awesome.enable = true;
+  };
+
 
   # Configure keymap in X11
-  services.xserver.layout = "br";
-  # services.xserver.xkbOptions = "eurosign:e";
+  # services.xserver.layout = "us";
+  # services.xserver.xkbOptions = {
+  #   "eurosign:e";
+  #   "caps:escape" # map caps to escape.
+  # };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {
-      enableHybridCodec = true; 
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  };  
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.settings = {
+  General = {
+      Enable = "Source,Sink,Media,Socket";
     };
-  };  
-  hardware.opengl = {
-       enable = true;
-       extraPackages = with pkgs; [
-          intel-media-driver
-          vaapiIntel
-          vaapiVdpau
-          libvdpau-va-gl
-  	];
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liquuid = {
-     shell = pkgs.zsh;
-     isNormalUser = true;
-     extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+    isNormalUser = true;
+    extraGroups = [ "adbusers" "wheel" "docker" ]; 
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  
   environment.systemPackages = with pkgs; [
-     wget vim micro dstat tree gotop compsize
-     firefox brave
-     vscode-fhs git tig dbeaver insomnia go rustc zeal jetbrains.pycharm-professional 
-     xterm xorg.xinit alacritty xclip yakuake
+  # editors
+     vim micro
+  # tools
+     btrfs-progs compsize wget p7zip dstat tree gotop iotop gotop dstat htop nmap iptraf-ng wireshark openvpn jetbrains-mono 
+  # browsers
+     firefox brave chromium
+  # dev tools
+     meld vscode git tig dbeaver insomnia go zeal android-studio
+  # x11 apps
+     xterm xorg.xinit alacritty xclip flameshot nitrogen terminator
+  # containers
      docker docker-compose
-     nodejs-14_x yarn deno
-     #python39Full python39Packages.ipython
-     strawberry
-     gwenview okular 
-     zsnes sdlmame 
-     obs-studio gimp inkscape blender kdenlive akira-unstable sakura ffmpeg-full youtube-dl
-     syncthingtray syncthing transmission-qt
+  # nodejs
+     nodejs-16_x yarn deno
+  # python
+     python39Full python39Packages.ipython
+  # music
+     clementine lollypop lmms hydrogen kid3
+  # games 
+     #steam citra dolphin-emu
+  # video tools
+     obs-studio kdenlive mpv vlc ffmpegthumbs handbrake ffmpeg-full 
+  # graphical tools
+    gimp inkscape krita blender
+  # office 
+    wpsoffice zeal
+  # gnome stuff
+     gnome3.adwaita-icon-theme
+     gnome3.gnome-tweaks
+     gnomeExtensions.appindicator
+     dracula-theme
+     gnome.gedit
+     gthumb
+     gnomeExtensions.syncthing-indicator
+  # eng
+     stlink stlink-gui fritzing logisim-evolution openscad cura qucs-s sigrok-cli pulseview
+  # comunication
+     teams discord remmina tdesktop anydesk
+  # p2p
+     transmission nextcloud-client syncthing
+  # misc
      adoptopenjdk-bin
-     unzip p7zip
-     refind
-     neofetch
-     mpv
-     meslo-lg meslo-lgs-nf
-     killall
-     fortune
-     fvwm xfce.thunar pcmanfm
-     bzip2 celt fontconfig freetype frei0r fribidi game-music-emu gnutls gsm
-     libjack2 ladspaH lame libass libbluray libbs2b libcaca libdc1394 libmodplug
-     libogg libopus libssh libtheora libvdpau libvorbis libvpx libwebp
-     lzma openal libpulseaudio rtmpdump opencore-amr makeWrapper
-     samba #kamoso 
-     SDL2 python39Packages.future python38Packages.future renpy 
-     soxr mesa speex vid-stab wavpack x264 x265 xavs xvidcore zeromq4 zlib libaom libv4l openssl
-     gcc cmake gnumake nasm yasm pkg-config binutils
-     adapta-kde-theme arc-kde-theme kdeplasma-addons latte-dock plasma-browser-integration libsForQt5.kde2-decoration 
-     adwaita-qt htop gotop libreoffice weston
-     terminator rofi nitrogen dmenu flameshot nnn ranger picom networkmanagerapplet kde-gtk-config krusader
-   ];
-  programs.sway = {
-	  enable = true;
-	  wrapperFeatures.gtk = true; # so that gtk works properly
-		  extraPackages = with pkgs; [
-		  swaylock
-			  swayidle
-			  wl-clipboard
-			  mako # notification daemon
-			  alacritty # Alacritty is the default terminal in the config
-			  dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
-		  ];
-  };
-  programs.dconf.enable = true;
-  virtualisation.docker.enable = true;
-  programs.adb.enable = true;
-  programs.steam.enable = true;
-  programs.zsh.ohMyZsh = {
-	  enable = true;
-	  plugins = [ "git" "python" "man" "adbusers" ];
-	  theme = "agnoster";
-  };  
-  services.xserver.windowManager.awesome = {
-	enable = true;
-	luaModules = with pkgs.luaPackages; [
-		luarocks
-		luadbi-mysql
-	];
-  };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+     libwebp
+     distrobox
+     gnome.gnome-boxes
+     dmidecode
+     hwinfo 
+     sshfs
+     scrcpy
+     lfs
+     woeusb
+     foliate
+  ];
+    programs.dconf.enable = true;
+    virtualisation.docker.enable = true;
+    virtualisation.virtualbox.host.enable = true;
+    programs.adb.enable = true;
+    programs.zsh.ohMyZsh = {
+      enable = true;
+      plugins = [ "git" "python" "man" "adbusers" ];
+      theme = "agnoster";
+    };  
 
-  # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.accounts-daemon.enable = true;
+  services.gnome.gnome-online-accounts.enable = true;
+  environment.variables = {
+    # Set sandbox variable for gnome accounts to work
+    WEBKIT_FORCE_SANDBOX = "0";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -167,13 +190,18 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  # system.copySystemConfiguration = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "22.05"; # Did you read the comment?
 
 }
 

@@ -8,31 +8,103 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/bb4f539a-6b01-42f4-b13c-109ad82285fc";
+    { device = "/dev/disk/by-uuid/5b066017-97ed-4e6f-a6f4-ffce0be68485";
       fsType = "btrfs";
-      options= [ "compress=zstd" ];
+      options = [ "subvol=@" ];
     };
 
-  fileSystems."/boot" =
+  boot.initrd.luks.devices."luks-8a689b66-d451-4cf4-9506-fc824ac375bb".device = "/dev/disk/by-uuid/8a689b66-d451-4cf4-9506-fc824ac375bb";
 
-    { device = "/dev/disk/by-uuid/A8BF-16F7";
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/8E60-4977";
       fsType = "vfat";
     };
-  fileSystems."/home" =
 
-    { device = "/dev/disk/by-uuid/fb6a3808-95aa-4590-ba7e-d695ddd491f5";
+  fileSystems."/home/liquuid/Music" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
       fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@music" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+  fileSystems."/storage" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@storage" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+  fileSystems."/storage/attic" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@attic" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+  fileSystems."/storage/audio" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@audio" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+  fileSystems."/storage/backups" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@backups" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/8c87709c-369a-482d-ad17-18cca3c06291"; }
-    ];
+   fileSystems."/storage/books" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@books" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };  
+  fileSystems."/storage/games" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@games" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+
+   fileSystems."/storage/misc" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@misc" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+  fileSystems."/storage/movies" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@movies" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+   fileSystems."/storage/software" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "subvol=@software" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+   fileSystems."/data" =
+    { device = "/dev/disk/by-uuid/c417646d-5d5e-452b-8d41-61fc66d08c93";
+      fsType = "btrfs";
+      options = [ "compress=zstd:15" "noatime" "autodefrag" "space_cache" "discard" "clear_cache" ];
+
+    };
+
+  swapDevices = [ ];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp1s0f1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

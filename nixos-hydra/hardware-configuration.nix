@@ -127,6 +127,15 @@
 
     };
 
+
+  fileSystems."/home/liquuid/Downloads" =
+    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "noatime" "subvol=@incoming" "autodefrag" "space_cache" "discard" ];
+
+    };
+
+
   fileSystems."/home/liquuid/.local/share/Steam" =
     { device = "/dev/disk/by-uuid/47f4a9d3-175a-457b-9668-45d9ab66b63b";
       fsType = "btrfs";
@@ -134,6 +143,12 @@
 
     };
   
+
+  fileSystems."/home/liquuid/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps" =
+    { device = "/home/liquuid/.local/share/Steam/steamapps";
+      options = [ "bind" ];
+
+    };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/5D64-4714";
