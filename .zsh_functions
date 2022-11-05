@@ -63,6 +63,12 @@
     then echo usage: $0 name ...; fi
     for i; do ffmpeg -n -i $i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 23 ${i:r}.x265_23.mkv; done
 }
+..x265_23_docker(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do sudo docker run -v "$(pwd)":/tmp jrottenberg/ffmpeg -n -i /tmp/$i -map 0 -c:a copy -c:s copy -c:v libx265 -crf 23 /tmp/${i:r}.x265_23.mkv; done
+}
+
 ..x265_21(){
     if (( $# == 0 ))
     then echo usage: $0 name ...; fi
@@ -114,6 +120,11 @@
     if (( $# == 0 ))
     then echo usage: ..7zm name ...; fi
     for i; do 7z a -mx=9 ${i:r}.7z $i; done
+}
+..pdfcruncher(){
+    if (( $# == 0 ))
+    then echo usage: $0 name ...; fi
+    for i; do name=`basename $i .pdf`; gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$name.gs.pdf $i ;done
 }
 ..alpha_organizer(){
     ALPHA="q w e r t y u i o p a s d f g h j k l z x c v b n m"
