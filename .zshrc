@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -6,9 +13,14 @@ SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/liquuid/.zshrc'
+zstyle ":completion:*:commands" rehash 1
 
 autoload -Uz compinit
 compinit
+
+#fortune
+#echo
+
 # End of lines added by compinstall
 PROMPT='%F{green}%n%f@%F{blue}%m%f %F{yellow}%1~%f %# '
 export PATH=$PATH:~/go/bin
@@ -16,10 +28,13 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/usr/local/bin
 export GOPATH=~/go
+#export GOROOT=$GOPATH
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH=$PATH:/var/lib/snapd/snap/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export LC_ALL="pt_BR.UTF-8"
+export NNN_FIFO="/tmp/nnn.fifo"
+export TERMINAL="xterm"
 alias df="lfs"
 alias ls="exa"
 alias ls="ls --color"
@@ -28,6 +43,8 @@ alias ddu="du -h --max-depth=1"
 alias -s txt=vim
 alias gnome-boxes="GTK_THEME=Adwaita:light gnome-boxes"
 alias dbeaver="flatpak run io.dbeaver.DBeaverCommunity" 
+alias nnn="nnn -e"
+alias n="nnn"
 #export VAGRANT_DEFAULT_PROVIDER=libvirt
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
@@ -103,16 +120,16 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs disk_u
 POWERLEVEL9K_DIR_PATH_ABSOLUTE=false
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 eval $( dircolors $HOME/.LS_COLORS) 
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
 export SECRET_KEY="secret"
 #export DATABASE_URL="postgres://liquuid:qwe@localhost:5432/liquuid"
 #export DATABASE_URL="postgres://saleor:saleor@localhost:5432/saleor"
 export ALLOWED_HOSTS="*"
 export DEFAULT_FROM_EMAIL="from@email.com"
 alias manage='python $VIRTUAL_ENV/../manage.py'
-alias clear_docker="docker rmi `docker images | awk '{ print $3 }'`"
-alias l="ls -l"
-alias la="ls -la"
+#alias clear_docker="docker rmi `docker images | awk '{ print $3 }'`"
+#alias l="ls -l"
+#alias la="ls -la"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -127,3 +144,4 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export NNN_PLUG='f:finder;o:fzopen;p:preview-tui;d:diffs;t:nmount;v:imgview'
