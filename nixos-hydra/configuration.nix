@@ -17,17 +17,37 @@
   nixpkgs.config.allowUnfree = true;
 
 nix.extraOptions = ''experimental-features = nix-command flakes'';
+  
+  networking.extraHosts =
+  ''
+    192.168.50.10 rancher.hydra
+    135.181.17.175 pub-dev.colmena.cc
+    
+  '';
 
   networking.hostName = "hydra"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.interfaces.enp27s0.ipv4.addresses = [ {
+  networking.interfaces.br0.useDHCP = false;
+  
+  networking.bridges = {
+    "br0" = {
+      interfaces = [ "enp42s0" ];
+    };
+  };
+   
+  networking.interfaces.br0.ipv4.addresses = [ {
     address = "192.168.0.100";
-    prefixLength = 24;
-  } ] ;
+    prefixLength = 16;
+  }];
+  #networking.interfaces.enp42s0.ipv4.addresses = [ {
+  #  address = "192.168.0.100";
+  #  prefixLength = 24;
+  #} ] ;
   networking.defaultGateway = "192.168.0.1";
-  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ]; 
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+
   hardware.enableAllFirmware = true;
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -52,10 +72,11 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
           libinput.enable = true;
           enable = true;
           layout = "br";
+          videoDrivers = [ "amdgpu" ];
           displayManager = {
                   gdm.enable = true;
           };
-          desktopManager.plasma5.enable = true;
+          #desktopManager.plasma5.enable = true;
           desktopManager.gnome.enable = true;
 	  #desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
 	  #	khelpcenter
@@ -67,7 +88,7 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
 
 
           windowManager.awesome.enable = true;
-          gdk-pixbuf.modulePackages = with pkgs; [ libwebp ];
+#          gdk-pixbuf.modulePackages = with pkgs; [ libwebp ];
   };
 
   services.gnome.evolution-data-server.enable = true;
@@ -100,16 +121,21 @@ nix.extraOptions = ''experimental-features = nix-command flakes'';
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
 hardware.bluetooth.settings = {
   General = {
     Enable = "Source,Sink,Media,Socket";
   };
 };
- 
+ hardware.opengl.extraPackages = with pkgs; [
+  rocm-opencl-icd
+  rocm-opencl-runtime
+];
+
   users.users.liquuid = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "dialout" "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "dialout" "wheel" "docker" "libvirtd" ]; # Enable ‘sudo’ for the user.
   };
   users.extraGroups.vboxusers.members = [ "liquuid" ];
   #programs.steam = {
@@ -118,6 +144,9 @@ hardware.bluetooth.settings = {
   #  remotePlay.openFirewall = true;
   #  dedicatedServer.openFirewall = true;
   #};
+  environment.etc."vbox/networks.conf".text = ''
+    * 192.168.0.0/16
+  '';
   environment.systemPackages = with pkgs; [
   # editors
      vim micro
@@ -152,17 +181,18 @@ hardware.bluetooth.settings = {
      dracula-theme
      gnome.gedit
      gthumb
-     gnomeExtensions.syncthing-indicator
+     #gnomeExtensions.syncthing-indicator
      sshfs
      #foliate
   # eng
-     # stlink stlink-gui 
-     fritzing logisim-evolution openscad cura qucs sigrok-cli pulseview
+     stlink stlink-gui 
+     fritzing logisim-evolution openscad prusa-slicer cura qucs sigrok-cli pulseview
   # comunication
-     teams discord remmina tdesktop anydesk strongswan networkmanager_strongswan
+     teams slack discord remmina tdesktop anydesk strongswan networkmanager_strongswan
   # p2p
      transmission-gtk nextcloud-client syncthing 
   # misc
+     smartmontools
      pcsctools
      pcsclite
      scmccid
@@ -176,9 +206,14 @@ hardware.bluetooth.settings = {
      #dduper
      ghostscript
      woeusb
-    plasma5Packages.kdegraphics-thumbnailers
+    #plasma5Packages.kdegraphics-thumbnailers
   # fonts 
     dejavu_fonts open-sans clearlyU cm_unicode corefonts powerline-fonts ankacoder fira-code fira-code-symbols fira-mono font-manager     
+    rocm-opencl-runtime 
+    rescuetime
+    jetbrains.goland
+    usb-reset
+    virt-manager
      
    
   ];
@@ -186,6 +221,7 @@ hardware.bluetooth.settings = {
     virtualisation.docker.enable = true;
     virtualisation.virtualbox.host.enable = true;
     virtualisation.virtualbox.host.enableExtensionPack = true;
+    virtualisation.libvirtd.enable = true;    
 
   
     programs.adb.enable = true;
