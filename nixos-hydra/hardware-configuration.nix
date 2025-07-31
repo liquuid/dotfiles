@@ -19,11 +19,6 @@
       options = [ "subvol=@" "compress=zstd" ];
     };
 
-#  fileSystems."/boot" =
-#    { device = "/dev/disk/by-uuid/955c688f-66bd-478c-8260-efa6c4138059";
-#      fsType = "ext4";
-#    };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/F908-D4D8";
       fsType = "vfat";
@@ -55,29 +50,12 @@
       fsType = "ext4";
       options = [ "noatime" ];
    };
-  #fileSystems."/storage/home-hydra" =
-  #  { device = "192.168.0.111:/mnt/storage/home-hydra";
-  #    fsType = "nfs";
-  #    options = [ "x-systemd.automount" "noauto" "x-systemd.mount-timeout=90" "async"]; 
-  #  };
 
   fileSystems."/home/liquuid/Music" =
     { device = "192.168.0.111:/mnt/storage/music";
       fsType = "nfs";
       options = [ "x-systemd.automount" "noauto" "x-systemd.mount-timeout=90" "async" ];
     };
-  #fileSystems."/images" =
-  #  { 
-  #    device = "images";
-  #    fsType = "zfs";
-  #    options = ["zfsutils"];
-
-  #  };
-  #fileSystems."/storage/storage-vm" =
-  #  { device = "192.168.0.111:/mnt/storage/storage-vm";
-  #    fsType = "nfs";
-  #    options = [ "x-systemd.automount" "noauto" "x-systemd.mount-timeout=90"]; 
-  #  };
 
   swapDevices = [ ];
 
