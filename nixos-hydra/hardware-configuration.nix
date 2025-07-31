@@ -8,165 +8,88 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2a0ef99f-674f-4fee-a4e7-5ce378f7506e";
+    { device = "/dev/disk/by-uuid/e8c6f926-102e-4c58-be26-c9d08c88a2ef";
       fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@nix" ];
+      options = [ "subvol=@" "compress=zstd" ];
     };
 
 #  fileSystems."/boot" =
-#    { device = "/dev/disk/by-uuid/a21aa17d-cf53-4e92-bc64-fcb5b8c691de";
+#    { device = "/dev/disk/by-uuid/955c688f-66bd-478c-8260-efa6c4138059";
 #      fsType = "ext4";
 #    };
 
-
-  fileSystems."/storage" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@storage" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/2a0ef99f-674f-4fee-a4e7-5ce378f7506e";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@home" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-
-  fileSystems."/storage/attic" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@attic" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-  fileSystems."/storage/audio" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@audio" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-  fileSystems."/storage/backups" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@backups" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-  fileSystems."/storage/books" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@books" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-
-  fileSystems."/storage/games" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@games" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-  fileSystems."/storage/incoming" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@incoming" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-  fileSystems."/storage/misc" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@misc" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-   fileSystems."/storage/movies" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@movies" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-  fileSystems."/storage/music" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@music" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-   fileSystems."/storage/software" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@software" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-
-   fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-
-  fileSystems."/home/liquuid/Music" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@music" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-
-  fileSystems."/home/liquuid/Downloads" =
-    { device = "/dev/disk/by-uuid/711e078a-32d3-4c0f-bee2-6bb0a3ec3f38";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@incoming" "autodefrag" "space_cache" "discard" ];
-
-    };
-
-
-  fileSystems."/home/liquuid/.local/share/Steam" =
-    { device = "/dev/disk/by-uuid/47f4a9d3-175a-457b-9668-45d9ab66b63b";
-      fsType = "btrfs";
-      options = [ "compress=zstd" "noatime" "subvol=@steam" "autodefrag" "space_cache" "discard" ];
-
-    };
-  
-
-  fileSystems."/home/liquuid/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps" =
-    { device = "/home/liquuid/.local/share/Steam/steamapps";
-      options = [ "bind" ];
-
-    };
-
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5D64-4714";
+    { device = "/dev/disk/by-uuid/F908-D4D8";
       fsType = "vfat";
     };
 
-  swapDevices = [ 
-     { device = "/dev/nvme0n1p3"; } 
-     { device = "/dev/nvme0n1p5"; }
-  ];
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/e8c6f926-102e-4c58-be26-c9d08c88a2ef";
+      fsType = "btrfs";
+      options = [ "subvol=@home" "compress=zstd" ];
+    };
+  fileSystems."/srv" =
+    { device = "/dev/data/srv";
+      fsType = "xfs";
+      options = [ "noatime" ];
+    };
+  fileSystems."/srv-240" =
+    { device = "/dev/disk/by-uuid/003b92fd-f275-41ad-b591-6bb69a179aa5";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "autodefrag" ];
+    };
+
+  fileSystems."/home/liquuid/Downloads" =
+    { device = "/dev/data/downloads";
+      fsType = "ext4";
+      options = [ "noatime" ];
+    };
+  fileSystems."/home/liquuid/Downloads/.@" =
+    { device = "/dev/data/notwork";
+      fsType = "ext4";
+      options = [ "noatime" ];
+   };
+  #fileSystems."/storage/home-hydra" =
+  #  { device = "192.168.0.111:/mnt/storage/home-hydra";
+  #    fsType = "nfs";
+  #    options = [ "x-systemd.automount" "noauto" "x-systemd.mount-timeout=90" "async"]; 
+  #  };
+
+  fileSystems."/home/liquuid/Music" =
+    { device = "192.168.0.111:/mnt/storage/music";
+      fsType = "nfs";
+      options = [ "x-systemd.automount" "noauto" "x-systemd.mount-timeout=90" "async" ];
+    };
+  #fileSystems."/images" =
+  #  { 
+  #    device = "images";
+  #    fsType = "zfs";
+  #    options = ["zfsutils"];
+
+  #  };
+  #fileSystems."/storage/storage-vm" =
+  #  { device = "192.168.0.111:/mnt/storage/storage-vm";
+  #    fsType = "nfs";
+  #    options = [ "x-systemd.automount" "noauto" "x-systemd.mount-timeout=90"]; 
+  #  };
+
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp36s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp42s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp28s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp35s0.useDHCP = lib.mkDefault true;
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
