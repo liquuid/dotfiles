@@ -43,9 +43,7 @@
   networking.hostId= "4cc2f4d7";
   networking.extraHosts =
     ''
-      #45.7.232.101 armvin-odoo-hml.kmee.dev.br
-      #45.236.241.175 gmatacadista.com.br king.maximaatacadista.com.br
-      #45.7.232.108 erplivre.com.br
+      #0.0.0.0.0 host1 host2
     '';
 
 
@@ -61,14 +59,6 @@
   } ];
   networking.defaultGateway = "192.168.0.1";
   networking.nameservers = ["192.168.0.110" "8.8.8.8"];
-  
-  #services.resolved = {
-  #  enable = true;
-  #    dnssec = "false";
-  #    domains = [ "~." ];
-  #    fallbackDns = [ "192.168.0.110" "8.8.8.8" ];
-  #    dnsovertls = "false";
-  #  }; 
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -107,30 +97,11 @@
   	sddm.enable = true;
   	defaultSession = "plasma";
   };
-  #services.displayManager.gdm.enable=true;
+
   services.desktopManager.plasma6.enable = true;
-  #services.desktopManager..enable = true;
   services.xserver.windowManager.hypr.enable = true;
-  #services.xserver.desktopManager.xfce.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-  #services.desktopManager.lomiri.enable = true;
-#  systemd.tmpfiles.rules = [
-#    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
-#  ];
 
-#  hardware.opengl.extraPackages = with pkgs; [
-#    rocm-opencl-icd
-#    rocm-opencl-runtime
-#    clinfo
-#  ];
-
-   #hardware.opengl.driSupport = true;
-   # For 32 bit applications
-   #hardware.opengl.driSupport32Bit = true;
-
-  # Configure keymap in X11
   services.xserver.xkb.layout = "br";
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -140,19 +111,14 @@
 	openFirewall = true;
   };
 
-  # Enable sound.
-  #sound.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
   hardware.sane.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-  #hardware.opengl.enable = true;
   hardware.graphics.enable = true;
   services.blueman.enable = false;
-  #services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.wrappers."mount.nfs" = {
     setuid = true;
@@ -174,34 +140,6 @@ hardware.bluetooth.settings = {
     Experimental = true;
   };
 };
-
-  #hardware.nvidia = {
-
-    # Modesetting is required.
-  #  modesetting.enable = true;
-
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-  #  powerManagement.enable = false;
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-  #  powerManagement.finegrained = true;
-
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-  #  open = false;
-
-    # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
-  #  nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  #  package = config.boot.kernelPackages.nvidiaPackages.stable;
-#  }; 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.liquuid = {
@@ -230,20 +168,7 @@ hardware.bluetooth.settings = {
      vim micro
   # tools
   zoxide killall lfs wget unzip p7zip dool tree gotop iotop htop dig nmap openvpn jetbrains-mono file nixos-option usbutils unrar appimage-run kdePackages.yakuake yt-dlp media-downloader nfs-utils xorg.xhost libxfs xfsprogs filezilla zfs nnn fastfetch kdePackages.skanlite xsane gocr shntool flac opusTools   
-  # libxfs
-  # xfsprogs
-  # wireshark
-  # alex
-  # unetbootin 
-  # easyeffects
-  # wkhtmltopdf
-  # compsize
-  # ksane  #nomachine-client balena-cli ncftp freemind 
-  # browsers
-    #google-chrome 
     firefox brave  
-    #opera 
-    #librewolf 
 # dev tools
     spice spice-gtk spice-protocol win-virtio win-spice virt-viewer virt-manager virtiofsd qemu arduino godot_4 vscode rstudio git tig dbeaver-bin insomnia go ansible logisim-evolution gnumake  gnumake42 cmake android-studio  #cope zeal vagrant
  
@@ -416,12 +341,6 @@ hardware.bluetooth.settings = {
     #		"*/5 * * * *  liquuid docker exec -u www-data nextcloud-app-1 php /var/www/html/cron.php > /tmp/nextcloud.log"
     #	];
     #};
-    #home-manager = {
-    # extraSpecialArgs = { inherit inputs; };
-    # users = {
-    #   "liquuid" = import ./home.nix;
-    # };
-    #;
     
     services.spice-vdagentd.enable = true;
     #virtualisation.libvirtd.enable = true;
@@ -440,7 +359,6 @@ hardware.bluetooth.settings = {
     programs.zsh.enable = true;
     programs.zsh.ohMyZsh = {
       enable = true;
-      #plugins = [ "git" "python" "man" "adbusers" ];
       plugins = [ "git" "python" "man" ];
       theme = "agnoster";
     };  
